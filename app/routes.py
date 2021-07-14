@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, jsonify, abort
 from app import app
 from flask_paginate import Pagination, get_page_args
 import json
@@ -8,6 +8,13 @@ data = json.load(f)
 
 def get_data(offset=0, per_page=10):
     return data[offset: offset + per_page]
+
+def filterData(dic, listing_id):
+    return dic['id'] == int(listing_id)
+
+@app.template_filter()
+def numberFormat(value):
+    return format(int(value), ',d')
 
 @app.route('/')
 def index():
@@ -24,3 +31,11 @@ def index():
                             page=page,
                             per_page=per_page,
                             pagination=pagination)
+
+@app.route('/detail/<listing_id>', methods=['GET'])
+def listing_page(listing_id):
+    filtered_data = [d for d in data if filterData(d, listing_id)]
+    if len(filtered_data) == 0:
+        abort(404)
+    return render_template('listing.html',
+                            data=filtered_data[0])
