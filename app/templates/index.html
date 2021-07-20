@@ -11,16 +11,16 @@
     <div class="row justify-content-center">
         {% for item in data %}
         <div class="col-md-3 m-2 col-xs-12">
-            <div class="card" style="max-width: 350px; min-width: 350px;">
+            <div class="card" style="max-width: 350px; min-width: 200px;">
                 <img class="card-img-top" src="{{ url_for('static', filename='/' + loop.index | string() + '.jpeg') }}" style="height: 150px" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">${{ item.listPrice | numberFormat }}</h4>
                     <p class="card-text">{{ item.noBedrooms }} bed {{item.noBaths}} bath. Built in {{item.yearBuilt}}</p>
                     <p class="card-text">{{ item.address }}</p>
-                    <a href="google.com" class="stretched-link"></a>
+                    <a href="/detail/{{item.id}}" class="stretched-link"></a>
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted font-weight-bold">MLS<sup>&reg;</sup>{{item.mlNo}}</small>
+                    <small class="text-muted font-weight-bold">MLS<sup>&reg;</sup>{{item.mlNo}}</small>
                 </div>
             </div>
         </div>
