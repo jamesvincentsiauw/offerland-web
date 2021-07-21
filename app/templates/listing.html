@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Offerland</title>
+    <title>Hamid Etebarian</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/app.css') }}">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -19,21 +19,13 @@
     <section class="section-listing-photos xs-relative md-rounded-md xs-overflow-hidden md-mx3">
         <div class="listing-photos md-flex fill-grey-bg-3 xs-relative">
             <figure class="listing-photos-col xs-flex-grow-1 md-col-6 xs-aspect-3-2 xs-full-height xs-overflow-hidden pointer" data-toggle="modal" data-target="#listingGalleryModal" data-view="gallery">
-                <img src="https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-1-p480.jpg?2021-07-16+16%3A03%3A02" srcset="https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-1-p480.jpg?2021-07-16+16%3A03%3A02 480w, https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-1-p768.jpg?2021-07-16+16%3A03%3A02 768w, https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-1-p.jpg?2021-07-16+16%3A03%3A02 1200w"
-                    sizes="(min-width:64rem) 50vw, 100vw" decoding="async" alt=" 104 - 5565 Inman Avenue, Burnaby | Image 1" class="card-listing--img aspect-content object-fit-cover  xs-full-width xs-full-height xs-z1  listing-slider-content-photo-main">
-                <figcaption class="xs-px3 xs-text-6 text-muted xs-hide"> 104 - 5565 Inman Avenue, Burnaby</figcaption>
+                <img src="{{ url_for('static', filename='/house.png') }}" srcset="{{ url_for('static', filename='/house.png') }}" sizes="(min-width:64rem) 50vw, 100vw" decoding="async" class="card-listing--img aspect-content center xs-full-height xs-z1  listing-slider-content-photo-main">
+                <figcaption class="xs-px3 xs-text-6 text-muted xs-hide">{{data.address}}</figcaption>
             </figure>
-            <figure class="listing-photos-col xs-hide md-block md-col-4 xs-aspect-3-2 xs-full-height xs-flex-grow-1 xs-overflow-hidden pointer" data-target="#listingGalleryModal" data-toggle="modal" data-view="gallery">
-                <img sizes="
-                (min-width:64rem) 50vw,
-                100vw" data-srcset="
-                https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p480.jpg?2021-07-16+16%3A03%3A03 480w,
-                https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p768.jpg?2021-07-16+16%3A03%3A03 768w,
-                https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p.jpg?2021-07-16+16%3A03%3A03 1200w" data-img-defer-src="https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p480.jpg?2021-07-16+16%3A03%3A03" srcset="
-                https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p480.jpg?2021-07-16+16%3A03%3A03 480w,
-                https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p768.jpg?2021-07-16+16%3A03%3A03 768w,
-                https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p.jpg?2021-07-16+16%3A03%3A03 1200w" src="https://photos.zolo.ca/104-5565-inman-avenue-burnaby-R2602480-2-p480.jpg?2021-07-16+16%3A03%3A03" alt=" 104 - 5565 Inman Avenue, Burnaby | Image 2"
-                    class="card-listing--img aspect-content object-fit-cover  xs-full-width xs-full-height xs-z1 xs-hide md-block ls-is-cached lazyloaded"> </figure>
+            <figure class="listing-photos-col xs-flex-grow-1 md-col-6 xs-aspect-3-2 xs-full-height xs-overflow-hidden pointer" data-toggle="modal" data-target="#listingGalleryModal" data-view="gallery">
+                <img src="{{ url_for('static', filename='/house.png') }}" srcset="{{ url_for('static', filename='/house.png') }}" sizes="(min-width:64rem) 50vw, 100vw" decoding="async" class="card-listing--img center aspect-content xs-full-height xs-z1  listing-slider-content-photo-main">
+                <figcaption class="xs-px3 xs-text-6 text-muted xs-hide">{{data.address}}</figcaption>
+            </figure>
             <div class="listing-photos-col xs-hide md-flex md-flex-column md-col-2 xs-flex-grow-1">
                 <div class="xs-relative xs-flex-grow-1 xs-overflow-hidden pointer" data-target="#listingGalleryModal" data-toggle="modal" data-view="gallery">
                     <img src="/img/img-none-2.jpg?t=1" data-img-defer-src="/img/img-none-2.jpg?t=1" class="listing-slider-content-photo object-fit-cover xs-full-width xs-full-height aspect-content ls-is-cached lazyloaded" style="-webkit-filter: blur(0.5rem); filter: blur(0.5rem); transform: scale(1.1); -webkit-transform: scale(1.1);"
@@ -116,7 +108,7 @@
                         </dl>
                         <dl class="column">
                             <dt class="column-label">Listed By</dt>
-                            <dd class="column-value">Offerland Technology Inc.</dd>
+                            <dd class="column-value"><em>listing broker</em></dd>
                         </dl>
                     </div>
                 </section>

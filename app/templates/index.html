@@ -1,18 +1,18 @@
 <html>
 
 <head>
-    <title>Offerland</title>
+    <title>Hamid Etebarian</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
     <div class="row justify-content-center">
         {% for item in data %}
         <div class="col-md-3 m-2 col-xs-12">
-            <div class="card" style="max-width: 350px; min-width: 200px;">
-                <img class="card-img-top" src="{{ url_for('static', filename='/' + loop.index | string() + '.jpeg') }}" style="height: 150px" alt="Card image cap">
+            <div class="card" style="max-width: 350px; min-width: 300px;">
+                <img class="card-img-top" src="{{ url_for('static', filename='/house.png') }}" style="height: 150px" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title">${{ item.listPrice | numberFormat }}</h4>
                     <p class="card-text">{{ item.noBedrooms }} bed {{item.noBaths}} bath. Built in {{item.yearBuilt}}</p>
@@ -32,6 +32,41 @@
     <div class="row justify-content-center">
         {{ pagination.links }}
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="">
+            <div class="container text-center text-md-start p-4" style="font-size: xx-small;">
+                <p><b>Legal Notices</b></p>
+                <p><b>Disclaimer:</b></p>
+                <p>
+                    The data relating to real estate on this Virtual Office Website (MLS® VOW) comes in part from the MLS® Reciprocity program of the Real Estate Board of Greater Vancouver. Real estate listings held by participating real estate firms are marked with the
+                    MLS® Reciprocity logo and detailed information about the listing includes the name of the listing brokerage. The materials contained on this page may not be reproduced without the express written consent of the Real Estate Board of
+                    Greater Vancouver. We participate in MLS® Reciprocity, allowing us to display the listings of other agents on our site. By using this website, you agree that you will not use it for any purpose other than those expressly provided for
+                    in the Rules of Cooperation and regulations, guidelines and policies of Chilliwack & District Real Estate Board, Fraser Valley Real Estate Board and Real Estate Board of Greater Vancouver (collectively referred to as "the Board").
+                    In addition, the website must only be used by consumers for the purpose of locating and purchasing real estate. This website is operated by a brokerage or salesperson who is a member of The Canadian Real Estate Association. The information
+                    contained on this site is based in whole or in part on information that is provided by members of The Canadian Real Estate Association, who are responsible for its accuracy. CREA reproduces and distributes this information as a service
+                    for its members and assumes no responsibility for its accuracy. The listing content on this website is protected by copyright and other laws, and is intended solely for the private, non-commercial use by individuals. Any other reproduction,
+                    distribution or use of the content, in whole or in part, is specifically forbidden. The prohibited uses include commercial use, 'screen scraping', 'database scraping', and any other activity intended to collect, store, reorganize or
+                    manipulate data on the pages produced by or displayed on this website. </p>
+                <p><b>Terms of Use</b></p>
+                <p>You acknowledge (1) that you have received, read, and understand the Privacy Notice and Consent brochure published by the British Columbia Real Estate Assocation and the Disclosure of Representation in Trading Services document published
+                    by the Real Estate Council of British Columbia, (2) that these Terms of Use create a lawful REALTOR® / consumer relationship with you and not a REALTOR® / client relationship, (3) that the data obtained from this MLS® VOW is intended
+                    for and may only be used for your personal, non-commercial use, (4) that you have a bona fide interest in the purchase, sale or lease of real estate of the type being offered through this MLS® VOW, (5) that you will not yourself, and
+                    will not permit or assist others to, directly or indirectly copy, redistribute or retransmit any of the MLS® VOW data or information provided; display, post, disseminate, distribute, publish, broadcast, transfer, sell or sublicense
+                    any of the MLS® VOW data to another person; or engage in scraping (including “screen scraping” and “database scraping”), “data mining” or any other activity intended to collect, store, re-organize, summarize or manipulate any MLS®
+                    VOW data or any related data, (6) you acknowledge the Board's ownership of, and the validity of the Board's proprietary rights and copyright in the MLS® VOW data, and listing information, and (7) you expressly authorize the Board or
+                    their duly authorized representatives, to access the MLS® VOW and the information you provide to the agent or brokerage hosting the MLS® VOW, for the purposes of verifying compliance with and pursuing enforcement of these Terms of
+                    Use and all applicable rules, regulations, bylaws, policies, and laws.</p>
+                <p>_________________________________________________________________________________</p>
+                <p>The trademarks MLS®, Multiple Listing Service® and the associated logos are owned by REALTOR® Canada Inc. and licensed exclusively to The Canadian Real Estate Association (CREA). These certification marks identify real estate professionals
+                    who are members of CREA and who must abide by CREA's By-Laws, Rules, and the REALTOR® Code. The MLS® trademark and the MLS® logo are owned by CREA and identify the quality of services provided by real estate professionals who are members
+                    of CREA.</p>
+                <p>_________________________________________________________________________________
+                </p>
+            </div>
+        </section>
+    </footer>
 </body>
 
 </html>
