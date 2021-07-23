@@ -3230,17 +3230,7 @@ hr {
     }
 }
 
-.logo-zolo {
-    height: 36px;
-    width: 36px;
-}
-
-@media only screen and (min-width:64rem) {
-    .logo-zolo {
-        height: 30px;
-        width: 115px
-    }
-}
+@media only screen and (min-width:64rem) {}
 
 .nav-actions {
     min-height: 4rem;
