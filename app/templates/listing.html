@@ -47,7 +47,7 @@
         <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
         </button>
                                 <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Sell with Zolo</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Sell Your Property</a>
                                     <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">How Much is My Home Worth?</a>
                                 </div>
                             </section>
@@ -207,12 +207,10 @@
                                 <div class="tr">
                                     <div class="th bold">{{data.noBedrooms}} Bed</div>
                                 </div>
-                                <a href="https://www.zolo.ca/burnaby-real-estate/5565-inman-avenue/104" class="tr table-building-row text-primary hover:decoration-underline">
-                                    <div class="td table-building-unit xs-col-3 sm-col-3"><span class="xs-hide sm-inline">Unit</span> {{data.addressUnit}}</div>
-                                    <div class="td table-building-price xs-text-right xs-col-4 sm-col-3">$<span class="">{{data.listPrice|numberFormat}}</span></div>
-                                    <div class="td table-building-baths xs-text-right sm-col-3 xs-hide sm-table-cell"><span class="">{{data.noBaths}}</span> bath</div>
-                                    <div class="td table-building-size xs-text-right xs-col-5 sm-col-3"><span class="">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}}</span> ft<sup>2</sup></div>
-                                </a>
+                                <div class="td table-building-unit xs-col-3 sm-col-3"><span class="xs-hide sm-inline">Unit</span> {{data.addressUnit}}</div>
+                                <div class="td table-building-price xs-text-right xs-col-4 sm-col-3">$<span class="">{{data.listPrice|numberFormat}}</span></div>
+                                <div class="td table-building-baths xs-text-right sm-col-3 xs-hide sm-table-cell"><span class="">{{data.noBaths}}</span> bath</div>
+                                <div class="td table-building-size xs-text-right xs-col-5 sm-col-3"><span class="">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}}</span> ft<sup>2</sup></div>
                             </div>
                         </section>
                     </div>
@@ -235,7 +233,7 @@
             </section>
             <div class="listing-lead fill-white md-px3 md-mt3 xs-sticky xs-t2  xs-z1 rounded shadow-3" id="contact_us">
                 <h3 class="xs-full-width bold xs-py3 xs-text-2">Ask About this Home</h3>
-                <form action="https://www.zolo.ca/contact-success?pid=10411531&amp;apunit=104" method="post" name="contact_prop_details" class="listing-lead-form xs-pb3" id="top_contact_prop_details">
+                <form action="#" method="post" name="contact_prop_details" class="listing-lead-form xs-pb3" id="top_contact_prop_details">
                     <div class="listing-lead-form-inputs"><label for="InputFullname" class="sr-only">Full name</label>
                         <div class="input-wrapper xs-mb1">
                             <input type="text" id="InputFullname" placeholder="Full Name" class="text-input rounded fill-grey-input xs-pr4" name="fullname" data-validate="true" data-required="true" required="">
