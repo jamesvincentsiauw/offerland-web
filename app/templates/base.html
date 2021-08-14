@@ -25,31 +25,15 @@
                         <div class="xs-flex xs-flex-column md-flex-row md-flex-align-center xs-flex-order-3 md-flex-order-1">
                             <hr>
                             <section class="nav-section dropdown xs-relative">
-                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
-        Buy
-        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
+                                <button onclick="window.location.href='?status=Active'" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
+        Active
         </button>
-                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left hover:fill-blue-highlight hover:text-blue bold">Burnaby Real Estate</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Houses for Sale</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Condos for Sale</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Townhouses for Sale</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Open Houses</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Commercial</a>
-                                    <hr class="xs-my1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">New Listings</a>
-                                </div>
                             </section>
                             <hr class="md-hide">
                             <section class="nav-section dropdown xs-relative">
-                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
-        Sell
-        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
+                                <button onclick="window.location.href='?status=Sold'" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
+        Sold
         </button>
-                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Sell Your Property</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">How Much is My Home Worth?</a>
-                                </div>
                             </section>
                             <hr class="md-hide">
                             <a href="#" class="button button--menu xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">Blog</a>
@@ -94,8 +78,11 @@
                     <div class="nav-filters-location md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:300px;">
                         <form id="location_only_search" name="location_only_search">
                             <div class="filter-location-input xs-full-width xs-relative">
+                                {% if request.args.get('status') %}
+                                    <input type="hidden" value="{{request.args.get('status')}}" name="status" id="status">
+                                {% endif %}
                                 <label for="sarea" class="sr-only">Search Property</label> {% if not search %}
-                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem"> {% else %}
+                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="on" style="height:3rem"> {% else %}
                                 <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem"> {%
                                 endif %}
                                 <button class="submit-search button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none circle xs-flex xs-flex-align-center xs-flex-justify-center hover:text-blue xs-absolute xs-t05 xs-r1" type="submit" aria-label="Submit search">

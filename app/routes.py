@@ -7,7 +7,6 @@ import random
 
 f = open('app/data/listing.json')
 data = json.load(f)
-data = [d for d in data if d['status'] == 'Active']
 
 def get_key(q):
     if "mls" in q:
@@ -31,7 +30,13 @@ def numberFormat(value):
 @app.route('/')
 def index():
     q = request.args.get('q')
+    status = request.args.get('status')
+
     data = get_default_data()[:1500]
+    if status == 'Active':
+        data = [d for d in data if d['status'] == 'Active']
+    elif status == 'Sold':
+        data = [d for d in data if d['status'] == 'Sold']
 
     page, per_page, offset = get_page_args(page_parameter='page',
                                             per_page_parameter='per_page')
