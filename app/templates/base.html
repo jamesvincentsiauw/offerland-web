@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <title>Hamid Etebarian</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/app.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header gut xs-flex xs-full-width fill-white xs-z4 xs-relative" id="header">
+        <div class="nav-top xs-relative xs-flex xs-flex-align-center xs-full-width">
+            <div class="xs-flex xs-flex-align-center fill-white xs-full-width xs-z4 xs-gut-neg xs-px3 md-px0 xs-flex-grow-1">
+                <a href="/" style="text-decoration: none; color: black;">
+                    <h1 style="text-decoration: none;">Hamid Etebarian</h1>
+                </a>
+                <div class="nav-filters-location xs-hide md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:400px;">
+                    <img src="{{ url_for('static', filename='/team-3000.png') }}" style="width: 20%;">
+                </div>
+            </div>
+            <div id="drawer-menu" class="drawer drawer-ltr drawer-desktop drawer-menu fill-white print-hide">
+                <div class="drawer-body xs-py2 gut md-p0">
+                    <nav class="xs-flex xs-flex-column md-flex-row">
+                        <div class="xs-flex xs-flex-column md-flex-row md-flex-align-center xs-flex-order-3 md-flex-order-1">
+                            <hr>
+                            <section class="nav-section dropdown xs-relative">
+                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
+        Buy
+        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
+        </button>
+                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left hover:fill-blue-highlight hover:text-blue bold">Burnaby Real Estate</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Houses for Sale</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Condos for Sale</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Townhouses for Sale</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Open Houses</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Commercial</a>
+                                    <hr class="xs-my1">
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">New Listings</a>
+                                </div>
+                            </section>
+                            <hr class="md-hide">
+                            <section class="nav-section dropdown xs-relative">
+                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
+        Sell
+        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
+        </button>
+                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Sell Your Property</a>
+                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">How Much is My Home Worth?</a>
+                                </div>
+                            </section>
+                            <hr class="md-hide">
+                            <a href="#" class="button button--menu xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">Blog</a>
+                        </div>
+                        <div class="xs-flex xs-flex-column md-flex-row xs-flex-order-2 md-flex-order-3 md-ml05">
+                            <section class="nav-section dropdown xs-relative">
+                                <button data-toggle="dropdown" class="button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none hover:fill-grey-bg-2 circle xs-hide md-flex md-flex-align-center md-flex-justify-center" aria-label="Saved items">
+        <svg viewBox="0 0 24 24" height="24" width="24" class="fill-current pointer-events-none" aria-hidden="true"><path d="M16.5 3C13.6 3 12 5.09 12 5.09S10.4 3 7.5 3A5.5 5.5 0 002 8.5c0 4.17 4.91 8.21 6.28 9.49C9.86 19.46 12 21.35 12 21.35s2.14-1.89 3.72-3.36C17.09 16.71 22 12.67 22 8.5A5.5 5.5 0 0016.5 3zm-1.69 13.11l-.46.42c-.75.7-1.63 1.5-2.35 2.14a175.71 175.71 0 01-2.81-2.56C7.77 14.83 4 11.41 4 8.5A3.5 3.5 0 017.5 5c1.83 0 2.89 1.27 2.91 1.3L12 8l1.59-1.7A4.01 4.01 0 0116.5 5 3.5 3.5 0 0120 8.5c0 2.92-3.77 6.33-5.19 7.61z"></path></svg>
+        </button>
+                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2 md-hide">
+        Saved Items
+        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
+        </button>
+                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1 xs-r0 xs-l-auto">
+                                    <a class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue xs-flex xs-flex-align-center" href="#" rel="nofollow">Saved Searches</a>
+                                    <a class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue xs-flex xs-flex-align-center" href="#" rel="nofollow">Saved Homes</a>
+                                </div>
+                            </section>
+                            <a href="#" class="button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none hover:fill-grey-bg-2 circle xs-hide md-flex md-flex-align-center md-flex-justify-center xs-flex-shrink-0" rel="nofollow" aria-label="notifications">
+                                <div class="xs-inline-flex xs-relative">
+                                    <svg viewBox="0 0 24 24" height="24" width="24" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"></path></svg>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="xs-flex xs-flex-column md-flex-row xs-flex-order-3">
+                            <hr class="md-hide">
+                            <a href="#" class="button button--menu xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2 md-hide">Settings</a>
+                            <a class="button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none hover:fill-grey-bg-2 circle xs-hide md-flex md-flex-align-center md-flex-justify-center" href="#" aria-label="account settings">
+                                <svg viewBox="0 0 24 24" height="24" width="24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78a7.9 7.9 0 01-9.86 0zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33A8.01 8.01 0 1120 12c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"></path></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="backdrop"></div>
+        </div>
+    </header>
+    <section style="margin-top: 10px; margin-bottom: 20px;">
+        <ul class="nav-filters-menu xs-relative md-flex md-flex-align-center md-flex-grow-1 list-unstyled">
+            <li class="md-ml-auto xs-hide md-inline-block">
+                <div class="xs-flex xs-flex-align-center xs-full-width xs-z4 xs-gut-neg xs-px3 sm-px0 xs-flex-grow-1">
+                    <div class="nav-filters-location md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:300px;">
+                        <form id="location_only_search" name="location_only_search">
+                            <div class="filter-location-input xs-full-width xs-relative">
+                                <label for="sarea" class="sr-only">Search Property</label> {% if not search %}
+                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem"> {% else %}
+                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem"> {%
+                                endif %}
+                                <button class="submit-search button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none circle xs-flex xs-flex-align-center xs-flex-justify-center hover:text-blue xs-absolute xs-t05 xs-r1" type="submit" aria-label="Submit search">
+                    <svg viewBox="0 0 24 24" height="24" width="24" class="fill-current" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0a4.5 4.5 0 11-.01-8.99A4.5 4.5 0 019.5 14z"></path></svg>
+                    </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    {% block content %}{% endblock %}
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="">
+            <div class="container text-center text-md-start p-4" style="font-size: xx-small;">
+                <p style="color: black;"><b>Legal Notices</b></p>
+                <p style="color: black;"><b>Disclaimer:</b></p>
+                <p style="color: black;">
+                    The data relating to real estate on this Virtual Office Website (MLS® VOW) comes in part from the MLS® Reciprocity program of the Real Estate Board of Greater Vancouver. Real estate listings held by participating real estate firms are marked with the
+                    MLS® Reciprocity logo and detailed information about the listing includes the name of the listing brokerage. The materials contained on this page may not be reproduced without the express written consent of the Real Estate Board of
+                    Greater Vancouver. We participate in MLS® Reciprocity, allowing us to display the listings of other agents on our site. By using this website, you agree that you will not use it for any purpose other than those expressly provided for
+                    in the Rules of Cooperation and regulations, guidelines and policies of Chilliwack & District Real Estate Board, Fraser Valley Real Estate Board and Real Estate Board of Greater Vancouver (collectively referred to as "the Board").
+                    In addition, the website must only be used by consumers for the purpose of locating and purchasing real estate. This website is operated by a brokerage or salesperson who is a member of The Canadian Real Estate Association. The information
+                    contained on this site is based in whole or in part on information that is provided by members of The Canadian Real Estate Association, who are responsible for its accuracy. CREA reproduces and distributes this information as a service
+                    for its members and assumes no responsibility for its accuracy. The listing content on this website is protected by copyright and other laws, and is intended solely for the private, non-commercial use by individuals. Any other reproduction,
+                    distribution or use of the content, in whole or in part, is specifically forbidden. The prohibited uses include commercial use, 'screen scraping', 'database scraping', and any other activity intended to collect, store, reorganize or
+                    manipulate data on the pages produced by or displayed on this website. </p>
+                <p style="color: black;"><b>Terms of Use</b></p>
+                <p style="color: black;">You acknowledge (1) that you have received, read, and understand the Privacy Notice and Consent brochure published by the British Columbia Real Estate Assocation and the Disclosure of Representation in Trading Services document published
+                    by the Real Estate Council of British Columbia, (2) that these Terms of Use create a lawful REALTOR® / consumer relationship with you and not a REALTOR® / client relationship, (3) that the data obtained from this MLS® VOW is intended
+                    for and may only be used for your personal, non-commercial use, (4) that you have a bona fide interest in the purchase, sale or lease of real estate of the type being offered through this MLS® VOW, (5) that you will not yourself, and
+                    will not permit or assist others to, directly or indirectly copy, redistribute or retransmit any of the MLS® VOW data or information provided; display, post, disseminate, distribute, publish, broadcast, transfer, sell or sublicense
+                    any of the MLS® VOW data to another person; or engage in scraping (including “screen scraping” and “database scraping”), “data mining” or any other activity intended to collect, store, re-organize, summarize or manipulate any MLS®
+                    VOW data or any related data, (6) you acknowledge the Board's ownership of, and the validity of the Board's proprietary rights and copyright in the MLS® VOW data, and listing information, and (7) you expressly authorize the Board or
+                    their duly authorized representatives, to access the MLS® VOW and the information you provide to the agent or brokerage hosting the MLS® VOW, for the purposes of verifying compliance with and pursuing enforcement of these Terms of
+                    Use and all applicable rules, regulations, bylaws, policies, and laws.</p>
+                <p style="color: black;">_________________________________________________________________________________</p>
+                <p style="color: black;">The trademarks MLS®, Multiple Listing Service® and the associated logos are owned by REALTOR® Canada Inc. and licensed exclusively to The Canadian Real Estate Association (CREA). These certification marks identify real estate professionals
+                    who are members of CREA and who must abide by CREA's By-Laws, Rules, and the REALTOR® Code. The MLS® trademark and the MLS® logo are owned by CREA and identify the quality of services provided by real estate professionals who are members
+                    of CREA.</p>
+                <p style="color: black;">_________________________________________________________________________________
+                </p>
+            </div>
+        </section>
+    </footer>
+</body>
+
+</html>

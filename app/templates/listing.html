@@ -1,310 +1,187 @@
-<html>
-
-<head>
-    <title>Hamid Etebarian</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/app.css') }}">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <header class="header gut xs-flex xs-full-width fill-white xs-z4 xs-relative" id="header">
-        <div class="nav-top xs-relative xs-flex xs-flex-align-center xs-full-width">
-            <div class="xs-flex xs-flex-align-center fill-white xs-full-width xs-z4 xs-gut-neg xs-px3 md-px0 xs-flex-grow-1">
-                <a href="/" style="text-decoration: none; color: black;">
-                    <h1 style="text-decoration: none;">Hamid Etebarian</h1>
-                </a>
-                <div class="nav-filters-location xs-hide md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:400px;">
-                    <img src="{{ url_for('static', filename='/team-3000.png') }}" style="width: 20%;">
-                </div>
-            </div>
-            <div id="drawer-menu" class="drawer drawer-ltr drawer-desktop drawer-menu fill-white print-hide">
-                <div class="drawer-body xs-py2 gut md-p0">
-                    <nav class="xs-flex xs-flex-column md-flex-row">
-                        <div class="xs-flex xs-flex-column md-flex-row md-flex-align-center xs-flex-order-3 md-flex-order-1">
-                            <hr>
-                            <section class="nav-section dropdown xs-relative">
-                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
-        Buy
-        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
-        </button>
-                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left hover:fill-blue-highlight hover:text-blue bold">Burnaby Real Estate</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Houses for Sale</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Condos for Sale</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Townhouses for Sale</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Open Houses</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Commercial</a>
-                                    <hr class="xs-my1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">New Listings</a>
-                                </div>
-                            </section>
-                            <hr class="md-hide">
-                            <section class="nav-section dropdown xs-relative">
-                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
-        Sell
-        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
-        </button>
-                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1">
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">Sell Your Property</a>
-                                    <a href="#" class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue">How Much is My Home Worth?</a>
-                                </div>
-                            </section>
-                            <hr class="md-hide">
-                            <a href="#" class="button button--menu xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">Blog</a>
-                        </div>
-                        <div class="xs-flex xs-flex-column md-flex-row xs-flex-order-2 md-flex-order-3 md-ml05">
-                            <section class="nav-section dropdown xs-relative">
-                                <button data-toggle="dropdown" class="button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none hover:fill-grey-bg-2 circle xs-hide md-flex md-flex-align-center md-flex-justify-center" aria-label="Saved items">
-        <svg viewBox="0 0 24 24" height="24" width="24" class="fill-current pointer-events-none" aria-hidden="true"><path d="M16.5 3C13.6 3 12 5.09 12 5.09S10.4 3 7.5 3A5.5 5.5 0 002 8.5c0 4.17 4.91 8.21 6.28 9.49C9.86 19.46 12 21.35 12 21.35s2.14-1.89 3.72-3.36C17.09 16.71 22 12.67 22 8.5A5.5 5.5 0 0016.5 3zm-1.69 13.11l-.46.42c-.75.7-1.63 1.5-2.35 2.14a175.71 175.71 0 01-2.81-2.56C7.77 14.83 4 11.41 4 8.5A3.5 3.5 0 017.5 5c1.83 0 2.89 1.27 2.91 1.3L12 8l1.59-1.7A4.01 4.01 0 0116.5 5 3.5 3.5 0 0120 8.5c0 2.92-3.77 6.33-5.19 7.61z"></path></svg>
-        </button>
-                                <button data-toggle="dropdown" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2 md-hide">
-        Saved Items
-        <svg viewBox="0 0 24 24" class="fill-current xs-ml-auto md-ml05 pointer-events-none" height="16" width="16" style="margin-right:-.5rem" aria-hidden="true"><path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6-6-6 1.41-1.42z"></path></svg>
-        </button>
-                                <div class="dropdown-menu-topnav dropdown-menu fill-white xs-border-none xs-p0 md-border rounded md-p1 xs-r0 xs-l-auto">
-                                    <a class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue xs-flex xs-flex-align-center" href="#" rel="nofollow">Saved Searches</a>
-                                    <a class="button button--menu xs-full-width xs-text-left normal hover:fill-blue-highlight hover:text-blue xs-flex xs-flex-align-center" href="#" rel="nofollow">Saved Homes</a>
-                                </div>
-                            </section>
-                            <a href="#" class="button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none hover:fill-grey-bg-2 circle xs-hide md-flex md-flex-align-center md-flex-justify-center xs-flex-shrink-0" rel="nofollow" aria-label="notifications">
-                                <div class="xs-inline-flex xs-relative">
-                                    <svg viewBox="0 0 24 24" height="24" width="24" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"></path></svg>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="xs-flex xs-flex-column md-flex-row xs-flex-order-3">
-                            <hr class="md-hide">
-                            <a href="#" class="button button--menu xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2 md-hide">Settings</a>
-                            <a class="button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none hover:fill-grey-bg-2 circle xs-hide md-flex md-flex-align-center md-flex-justify-center" href="#" aria-label="account settings">
-                                <svg viewBox="0 0 24 24" height="24" width="24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78a7.9 7.9 0 01-9.86 0zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33A8.01 8.01 0 1120 12c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"></path></svg>
-                            </a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="backdrop"></div>
-        </div>
-    </header>
-    <nav class="listing-navigation xs-py2 xs-mt1 gut  xs-hide sm-block print-hide">
-        <div class="xs-flex xs-flex-align-center">
-            <a href="" onclick="window.history.back(); return false;" class="xs-mr5 nowrap xs-hide md-inline-flex md-flex-align-center xs-text-5 text-primary hover:decoration-underline">
-                <svg viewBox="0 0 24 24" height="16" width="16" class="fill-current xs-mr1" aria-hidden="true"><path d="M10 4.93L2.93 12 10 19.07l1.5-1.5L6.93 13H21v-2H6.93l4.57-4.57-1.5-1.5z"></path></svg> Back to Search
-            </a>
-        </div>
-    </nav>
-    <section class="section-listing-photos xs-relative md-rounded-md xs-overflow-hidden md-mx3">
-        <div class="listing-photos md-flex fill-grey-bg-3 xs-relative">
-            <figure class="listing-photos-col xs-flex-grow-1 md-col-6 xs-aspect-3-2 xs-full-height xs-overflow-hidden pointer" data-toggle="modal" data-target="#listingGalleryModal" data-view="gallery">
-                <img src="{{ url_for('static', filename='/house.png') }}" srcset="{{ url_for('static', filename='/house.png') }}" sizes="(min-width:64rem) 50vw, 100vw" decoding="async" class="card-listing--img aspect-content center xs-full-height xs-z1  listing-slider-content-photo-main">
-                <figcaption class="xs-px3 xs-text-6 text-muted xs-hide">{{data.address}}</figcaption>
-            </figure>
-            <figure class="listing-photos-col xs-flex-grow-1 md-col-6 xs-aspect-3-2 xs-full-height xs-overflow-hidden pointer" data-toggle="modal" data-target="#listingGalleryModal" data-view="gallery">
-                <img src="{{ url_for('static', filename='/house.png') }}" srcset="{{ url_for('static', filename='/house.png') }}" sizes="(min-width:64rem) 50vw, 100vw" decoding="async" class="card-listing--img center aspect-content xs-full-height xs-z1  listing-slider-content-photo-main">
-                <figcaption class="xs-px3 xs-text-6 text-muted xs-hide">{{data.address}}</figcaption>
-            </figure>
-            <div class="listing-photos-col xs-hide md-flex md-flex-column md-col-2 xs-flex-grow-1">
-                <div class="xs-relative xs-flex-grow-1 xs-overflow-hidden pointer" data-target="#listingGalleryModal" data-toggle="modal" data-view="gallery">
-                    <img src="/img/img-none-2.jpg?t=1" data-img-defer-src="/img/img-none-2.jpg?t=1" class="listing-slider-content-photo object-fit-cover xs-full-width xs-full-height aspect-content ls-is-cached lazyloaded" style="-webkit-filter: blur(0.5rem); filter: blur(0.5rem); transform: scale(1.1); -webkit-transform: scale(1.1);"
-                        alt="See more photos of  104 - 5565 Inman Avenue, Burnaby">
-                    <div class="xs-absolute xs-t0 xs-r0 xs-b0 xs-l0 xs-z2 xs-flex xs-flex-align-center xs-flex-justify-center fill-secondary">
-                        <div class="text-white bold xs-flex xs-flex-column xs-flex-align-center">
-                            <svg viewBox="0 0 24 24" height="32" width="32" class="fill-current xs-mb1">
-        <path d="M15 2H9L7.16 4H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-3.16L15 2zm-.88 2l1.85 2H20v12H4V6h4.04l1.84-2h4.24zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"></path>
-        </svg> See all 36 Photos</div>
-                    </div>
+{% extends 'base.html' %} {% block content %}
+<nav class="listing-navigation xs-py2 xs-mt1 gut  xs-hide sm-block print-hide">
+    <div class="xs-flex xs-flex-align-center">
+        <a href="" onclick="window.history.back(); return false;" class="xs-mr5 nowrap xs-hide md-inline-flex md-flex-align-center xs-text-5 text-primary hover:decoration-underline">
+            <svg viewBox="0 0 24 24" height="16" width="16" class="fill-current xs-mr1" aria-hidden="true"><path d="M10 4.93L2.93 12 10 19.07l1.5-1.5L6.93 13H21v-2H6.93l4.57-4.57-1.5-1.5z"></path></svg> Back to Search
+        </a>
+    </div>
+</nav>
+<section class="section-listing-photos xs-relative md-rounded-md xs-overflow-hidden md-mx3">
+    <div class="listing-photos md-flex fill-grey-bg-3 xs-relative">
+        <figure class="listing-photos-col xs-flex-grow-1 md-col-6 xs-aspect-3-2 xs-full-height xs-overflow-hidden pointer" data-toggle="modal" data-target="#listingGalleryModal" data-view="gallery">
+            <img src="{{ url_for('static', filename='/house.png') }}" srcset="{{ url_for('static', filename='/house.png') }}" sizes="(min-width:64rem) 50vw, 100vw" decoding="async" class="card-listing--img aspect-content center xs-full-height xs-z1  listing-slider-content-photo-main">
+            <figcaption class="xs-px3 xs-text-6 text-muted xs-hide">{{data.address}}</figcaption>
+        </figure>
+        <figure class="listing-photos-col xs-flex-grow-1 md-col-6 xs-aspect-3-2 xs-full-height xs-overflow-hidden pointer" data-toggle="modal" data-target="#listingGalleryModal" data-view="gallery">
+            <img src="{{ url_for('static', filename='/house.png') }}" srcset="{{ url_for('static', filename='/house.png') }}" sizes="(min-width:64rem) 50vw, 100vw" decoding="async" class="card-listing--img center aspect-content xs-full-height xs-z1  listing-slider-content-photo-main">
+            <figcaption class="xs-px3 xs-text-6 text-muted xs-hide">{{data.address}}</figcaption>
+        </figure>
+        <div class="listing-photos-col xs-hide md-flex md-flex-column md-col-2 xs-flex-grow-1">
+            <div class="xs-relative xs-flex-grow-1 xs-overflow-hidden pointer" data-target="#listingGalleryModal" data-toggle="modal" data-view="gallery">
+                <img src="/img/img-none-2.jpg?t=1" data-img-defer-src="/img/img-none-2.jpg?t=1" class="listing-slider-content-photo object-fit-cover xs-full-width xs-full-height aspect-content ls-is-cached lazyloaded" style="-webkit-filter: blur(0.5rem); filter: blur(0.5rem); transform: scale(1.1); -webkit-transform: scale(1.1);"
+                    alt="See more photos of  104 - 5565 Inman Avenue, Burnaby">
+                <div class="xs-absolute xs-t0 xs-r0 xs-b0 xs-l0 xs-z2 xs-flex xs-flex-align-center xs-flex-justify-center fill-secondary">
+                    <div class="text-white bold xs-flex xs-flex-column xs-flex-align-center">
+                        <svg viewBox="0 0 24 24" height="32" width="32" class="fill-current xs-mb1">
+    <path d="M15 2H9L7.16 4H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-3.16L15 2zm-.88 2l1.85 2H20v12H4V6h4.04l1.84-2h4.24zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"></path>
+    </svg> See all 36 Photos</div>
                 </div>
             </div>
         </div>
-        <div class="xs-absolute xs-b2 xs-r2 xs-z2 md-hide">
-            <div class="xs-py05 xs-px1 fill-primary text-white xs-text-6 bold rounded xs-flex xs-flex-align-center pointer-events-none">
-                <svg viewBox="0 0 24 24" height="12" width="12" class="fill-current xs-mr05"><title>photos</title><circle cx="12" cy="12" r="3"></circle><path d="M20 4h-3.17l-1.24-1.35A2 2 0 0014.12 2H9.88c-.56 0-1.1.24-1.48.65L7.17 4H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm-8 13a5 5 0 110-10 5 5 0 010 10z"></path></svg>                36 </div>
-        </div>
-    </section>
-    <section class="section-main gut md-pb3 container md-grid md-gap-6 grid-cols-listing">
-        <div class="main-column">
-            <section class="xs-grid xs-gap-2 listing-summary-grid xs-mt4 xs-mb3 md-mt5">
-                <section class="listing-location min-width-0">
-                    <h1 class="address xs-text-2 sm-text-1 truncate heavy">
-                        {{data.address}} </h1>
-                    <div class="area truncate">{{data.area}}</div>
-                    <ul class="list-unstyled xs-mt2 bold">
-                        <li class="tile-data xs-inline xs-mr1"><span class="priv">{{data.noBedrooms}}</span> bed</li>
-                        <li class="tile-data xs-inline xs-mr1"><span class="priv">{{data.noBaths}}</span> bath</li>
-                    </ul>
-                </section>
-                <section class="listing-price sm-text-right sm-flex sm-flex-column">
-                    <div class="xs-text-2 sm-text-1 heavy xs-inline sm-block xs-mr2 sm-mr0">
-                        <span class="priv">
-        ${{ data.listPrice | numberFormat }} </span>
-                    </div>
-                    <div class="xs-mt2 xs-flex xs-flex-align-center sm-flex-row-reverse">
-                        <div class="bold"><span class="priv">For Sale</span></div>
-                        <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-green" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"></circle>
-        </svg>
-                    </div>
-                </section>
+    </div>
+    <div class="xs-absolute xs-b2 xs-r2 xs-z2 md-hide">
+        <div class="xs-py05 xs-px1 fill-primary text-white xs-text-6 bold rounded xs-flex xs-flex-align-center pointer-events-none">
+            <svg viewBox="0 0 24 24" height="12" width="12" class="fill-current xs-mr05"><title>photos</title><circle cx="12" cy="12" r="3"></circle><path d="M20 4h-3.17l-1.24-1.35A2 2 0 0014.12 2H9.88c-.56 0-1.1.24-1.48.65L7.17 4H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm-8 13a5 5 0 110-10 5 5 0 010 10z"></path></svg>            36 </div>
+    </div>
+</section>
+<section class="section-main gut md-pb3 container md-grid md-gap-6 grid-cols-listing">
+    <div class="main-column">
+        <section class="xs-grid xs-gap-2 listing-summary-grid xs-mt4 xs-mb3 md-mt5">
+            <section class="listing-location min-width-0">
+                <h1 class="address xs-text-2 sm-text-1 truncate heavy">
+                    {{data.address}} </h1>
+                <div class="area truncate">{{data.area}}</div>
+                <ul class="list-unstyled xs-mt2 bold">
+                    <li class="tile-data xs-inline xs-mr1"><span class="priv">{{data.noBedrooms}}</span> bed</li>
+                    <li class="tile-data xs-inline xs-mr1"><span class="priv">{{data.noBaths}}</span> bath</li>
+                </ul>
             </section>
-            <section class="section-listing section-listing-pad xs-border-top-none md-border-top-lighter xs-mt3 xs-pb4 md-pt3 md-pb5 expandable">
-                <section class="section-listing-content sm-grid sm-gap-3 xs-mb3 sm-grid-cols-2">
-                    <div>
-                        <dl class="column">
-                            <dt class="column-label">Type</dt>
-                            <dd class="column-value"><span class="priv">{{data.typeOfDwelling}}</span></dd>
-                        </dl>
-                        <dl class="column">
-                            <dt class="column-label">Size</dt>
-                            <dd class="column-value"><span class="priv">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}} sqft</span></dd>
-                        </dl>
-                        <dl class="column">
-                            <dt class="column-label">Year Built</dt>
-                            <dd class="column-value"><span class="priv">{{data.yearBuilt}}</span></dd>
-                        </dl>
-                        <dl class="column">
-                            <dt class="column-label">Pets</dt>
-                            <dd class="column-value"><span class="priv">No Data</span></dd>
-                        </dl>
-                        <dl class="column">
-                            <dt class="column-label">Taxes</dt>
-                            <dd class="column-value"><span class="priv">${{data.grossTaxes | numberFormat}} /yr</span></dd>
-                        </dl>
-                    </div>
-                    <div class="xs-mt3 sm-mt0">
-                        <dl class="column">
-                            <dt class="column-label">Added</dt>
-                            <dd class="column-value">{{data.listDate}}</dd>
-                        </dl>
-                        <dl class="column">
-                            <dt class="column-label">Updated</dt>
-                            <dd class="column-value">{{data.updateDate.split(' ')[0]}}</dd>
-                        </dl>
-                        <dl class="column key-fact-mls">
-                            <dt class="column-label">MLS®#</dt>
-                            <dd class="column-value"><span class="priv">{{data.mlNo}}</span></dd>
-                        </dl>
-                        <dl class="column">
-                            <dt class="column-label">Listed By</dt>
-                            <dd class="column-value"><em>listing broker</em></dd>
-                        </dl>
-                    </div>
-                </section>
-            </section>
-            <section class="section-listing section-listing-pad acc md-acc-open">
-                <input id="acc-section-building" type="checkbox" class="acc-input">
-                <span class="acc-icon"></span>
-                <label for="acc-section-building" class="acc-label">
-        <h3 class="section-listing-title">Building
-        <span class="xs-text-5 normal xs-block xs-pr4 xs-mt1">Building information on {{data.address}}: 1 unit for sale</span>
-        </h3>
-        </label>
-                <div class="section-listing-content acc-content">
-                    <div class="section-listing-content-pad">
-                        <section class="units-for-sale  " id="other-units-for-sale">
-                            <h4 class="xs-text-3 bold xs-mb1">For Sale</h4>
-                            <div class="table xs-full-width xs-mb3 table-building" style="max-width:30rem;">
-                                <div class="tr">
-                                    <div class="th bold">{{data.noBedrooms}} Bed</div>
-                                </div>
-                                <div class="td table-building-unit xs-col-3 sm-col-3"><span class="xs-hide sm-inline">Unit</span> {{data.addressUnit}}</div>
-                                <div class="td table-building-price xs-text-right xs-col-4 sm-col-3">$<span class="">{{data.listPrice|numberFormat}}</span></div>
-                                <div class="td table-building-baths xs-text-right sm-col-3 xs-hide sm-table-cell"><span class="">{{data.noBaths}}</span> bath</div>
-                                <div class="td table-building-size xs-text-right xs-col-5 sm-col-3"><span class="">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}}</span> ft<sup>2</sup></div>
-                            </div>
-                        </section>
-                    </div>
+            <section class="listing-price sm-text-right sm-flex sm-flex-column">
+                <div class="xs-text-2 sm-text-1 heavy xs-inline sm-block xs-mr2 sm-mr0">
+                    <span class="priv">
+    ${{ data.listPrice | numberFormat }} </span>
+                </div>
+                <div class="xs-mt2 xs-flex xs-flex-align-center sm-flex-row-reverse">
+                    <div class="bold"><span class="priv">For Sale</span></div>
+                    <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-green" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    </svg>
                 </div>
             </section>
-        </div>
-        <aside class="side-column xs-mt3 md-mt0 xs-mb5 md-mb0 xs-relative xs-z2">
-            <section id="sticky" class="">
-                <nav class="nav-actions xs-flex xs-flex-align-center gut fill-white xs-fixed xs-b0 xs-l0 xs-r0 xs-shadow-top xs-z4 md-hide">
-                    <div class="nav-actions-cta xs-flex xs-full-width xs-flex-align-center xs-my1">
-                        <a href="tel:+17784021805" class="button button--action xs-mr1 xs-flex-grow-1 pill" onclick="ga('send', {
-          hitType: 'event',
-          eventCategory: 'listing',
-          eventAction: 'call',
-          eventLabel: 'sale'
-          });">Call</a>
-                        <a href="#contact_us" class="button button--action xs-flex-grow-1 pill">Email</a>
-                    </div>
-                </nav>
+        </section>
+        <section class="section-listing section-listing-pad xs-border-top-none md-border-top-lighter xs-mt3 xs-pb4 md-pt3 md-pb5 expandable">
+            <section class="section-listing-content sm-grid sm-gap-3 xs-mb3 sm-grid-cols-2">
+                <div>
+                    <dl class="column">
+                        <dt class="column-label">Type</dt>
+                        <dd class="column-value"><span class="priv">{{data.typeOfDwelling}}</span></dd>
+                    </dl>
+                    <dl class="column">
+                        <dt class="column-label">Size</dt>
+                        <dd class="column-value"><span class="priv">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}} sqft</span></dd>
+                    </dl>
+                    <dl class="column">
+                        <dt class="column-label">Year Built</dt>
+                        <dd class="column-value"><span class="priv">{{data.yearBuilt}}</span></dd>
+                    </dl>
+                    <dl class="column">
+                        <dt class="column-label">Pets</dt>
+                        <dd class="column-value"><span class="priv">No Data</span></dd>
+                    </dl>
+                    <dl class="column">
+                        <dt class="column-label">Taxes</dt>
+                        <dd class="column-value"><span class="priv">${{data.grossTaxes | numberFormat}} /yr</span></dd>
+                    </dl>
+                </div>
+                <div class="xs-mt3 sm-mt0">
+                    <dl class="column">
+                        <dt class="column-label">Added</dt>
+                        <dd class="column-value">{{data.listDate}}</dd>
+                    </dl>
+                    <dl class="column">
+                        <dt class="column-label">Updated</dt>
+                        <dd class="column-value">{{data.updateDate.split(' ')[0]}}</dd>
+                    </dl>
+                    <dl class="column key-fact-mls">
+                        <dt class="column-label">MLS®#</dt>
+                        <dd class="column-value"><span class="priv">{{data.mlNo}}</span></dd>
+                    </dl>
+                    <dl class="column">
+                        <dt class="column-label">Listed By</dt>
+                        <dd class="column-value"><em>listing broker</em></dd>
+                    </dl>
+                </div>
             </section>
-            <div class="listing-lead fill-white md-px3 md-mt3 xs-sticky xs-t2  xs-z1 rounded shadow-3" id="contact_us">
-                <h3 class="xs-full-width bold xs-py3 xs-text-2">Ask About this Home</h3>
-                <form action="#" method="post" name="contact_prop_details" class="listing-lead-form xs-pb3" id="top_contact_prop_details">
-                    <div class="listing-lead-form-inputs"><label for="InputFullname" class="sr-only">Full name</label>
-                        <div class="input-wrapper xs-mb1">
-                            <input type="text" id="InputFullname" placeholder="Full Name" class="text-input rounded fill-grey-input xs-pr4" name="fullname" data-validate="true" data-required="true" required="">
-                            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
-                                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 9c2.7 0 5.8 1.29 6 2v1H6v-.99c.2-.72 3.3-2.01 6-2.01m0-11a4 4 0 100 8 4 4 0 000-8zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"></path></svg>
+        </section>
+        <section class="section-listing section-listing-pad acc md-acc-open">
+            <input id="acc-section-building" type="checkbox" class="acc-input">
+            <span class="acc-icon"></span>
+            <label for="acc-section-building" class="acc-label">
+    <h3 class="section-listing-title">Building
+    <span class="xs-text-5 normal xs-block xs-pr4 xs-mt1">Building information on {{data.address}}: 1 unit for sale</span>
+    </h3>
+    </label>
+            <div class="section-listing-content acc-content">
+                <div class="section-listing-content-pad">
+                    <section class="units-for-sale  " id="other-units-for-sale">
+                        <h4 class="xs-text-3 bold xs-mb1">For Sale</h4>
+                        <div class="table xs-full-width xs-mb3 table-building" style="max-width:30rem;">
+                            <div class="tr">
+                                <div class="th bold">{{data.noBedrooms}} Bed</div>
                             </div>
-                        </div><label for="inputEmail" class="sr-only">Email address</label>
-                        <div class="input-wrapper xs-mb1">
-                            <input type="email" id="inputEmail" placeholder="Email Address" class="text-input rounded fill-grey-input xs-pr4" name="emailaddress" data-validate="true" data-required="true" required="">
-                            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
-                                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M22 6a2 2 0 00-2-2H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
-                            </div>
+                            <div class="td table-building-unit xs-col-3 sm-col-3"><span class="xs-hide sm-inline">Unit</span> {{data.addressUnit}}</div>
+                            <div class="td table-building-price xs-text-right xs-col-4 sm-col-3">$<span class="">{{data.listPrice|numberFormat}}</span></div>
+                            <div class="td table-building-baths xs-text-right sm-col-3 xs-hide sm-table-cell"><span class="">{{data.noBaths}}</span> bath</div>
+                            <div class="td table-building-size xs-text-right xs-col-5 sm-col-3"><span class="">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}}</span> ft<sup>2</sup></div>
                         </div>
-                        <label for="inputPhone" class="sr-only">Phone number</label>
-                        <div class="input-wrapper xs-mb1">
-                            <input type="tel" id="inputPhone" placeholder="Phone Number (Mobile)" class="text-input rounded fill-grey-input xs-pr4" name="mobile" data-validate="true" data-required="true" required="" pattern="^[\s\S]{10,}$">
-                            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
-                                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M7 1a2 2 0 00-2 2v18c0 1.1.9 2 2 2h10a2 2 0 002-2V3a2 2 0 00-2-2H7zm0 2h10v2H7V3zm0 4h10v9H7V7zm0 11h10v3H7v-3zm3 1v1h4v-1h-4z"></path></svg>
-                            </div>
-                        </div>
-                        <label for="inputMessage" class="sr-only">Message</label>
-                        <textarea id="inputMessage" class="text-input rounded fill-grey-input" rows="4" name="c_message">I would like more information regarding a property at {{data.address}}</textarea>
-                        <button type="submit" disabled class="button button--action button--large pill xs-full-width xs-mt1 xs-flex xs-flex-justify-center bold shadow-2 text-3">Submit</button>
-                    </div>
-                    <div class="xs-text-center xs-mt3">
-                        <div class="xs-mb1">or call for info</div>
-                        <div class="realtor-call xs-ml-auto">
-                            <a>(012) 345-6789</a>
-                        </div>
-                    </div>
-                    <input type="hidden" name="cid" value="1">
-                    <input type="hidden" name="pid" value="10411531">
-                    <input type="hidden" name="this_s_r" value="sale">
-                    <input type="text" name="Email" id="email" placeholder="Your email" class="xs-hide">
-                </form>
-            </div>
-        </aside>
-    </section>
-    <footer class="text-center text-lg-start bg-light text-muted">
-        <section class="">
-            <div class="container text-center text-md-start p-4" style="font-size: xx-small;">
-                <p style="color: black;"><b>Legal Notices</b></p>
-                <p style="color: black;"><b>Disclaimer:</b></p>
-                <p style="color: black;">
-                    The data relating to real estate on this Virtual Office Website (MLS® VOW) comes in part from the MLS® Reciprocity program of the Real Estate Board of Greater Vancouver. Real estate listings held by participating real estate firms are marked with the
-                    MLS® Reciprocity logo and detailed information about the listing includes the name of the listing brokerage. The materials contained on this page may not be reproduced without the express written consent of the Real Estate Board of
-                    Greater Vancouver. We participate in MLS® Reciprocity, allowing us to display the listings of other agents on our site. By using this website, you agree that you will not use it for any purpose other than those expressly provided for
-                    in the Rules of Cooperation and regulations, guidelines and policies of Chilliwack & District Real Estate Board, Fraser Valley Real Estate Board and Real Estate Board of Greater Vancouver (collectively referred to as "the Board").
-                    In addition, the website must only be used by consumers for the purpose of locating and purchasing real estate. This website is operated by a brokerage or salesperson who is a member of The Canadian Real Estate Association. The information
-                    contained on this site is based in whole or in part on information that is provided by members of The Canadian Real Estate Association, who are responsible for its accuracy. CREA reproduces and distributes this information as a service
-                    for its members and assumes no responsibility for its accuracy. The listing content on this website is protected by copyright and other laws, and is intended solely for the private, non-commercial use by individuals. Any other reproduction,
-                    distribution or use of the content, in whole or in part, is specifically forbidden. The prohibited uses include commercial use, 'screen scraping', 'database scraping', and any other activity intended to collect, store, reorganize or
-                    manipulate data on the pages produced by or displayed on this website. </p>
-                <p style="color: black;"><b>Terms of Use</b></p>
-                <p style="color: black;">You acknowledge (1) that you have received, read, and understand the Privacy Notice and Consent brochure published by the British Columbia Real Estate Assocation and the Disclosure of Representation in Trading Services document published
-                    by the Real Estate Council of British Columbia, (2) that these Terms of Use create a lawful REALTOR® / consumer relationship with you and not a REALTOR® / client relationship, (3) that the data obtained from this MLS® VOW is intended
-                    for and may only be used for your personal, non-commercial use, (4) that you have a bona fide interest in the purchase, sale or lease of real estate of the type being offered through this MLS® VOW, (5) that you will not yourself, and
-                    will not permit or assist others to, directly or indirectly copy, redistribute or retransmit any of the MLS® VOW data or information provided; display, post, disseminate, distribute, publish, broadcast, transfer, sell or sublicense
-                    any of the MLS® VOW data to another person; or engage in scraping (including “screen scraping” and “database scraping”), “data mining” or any other activity intended to collect, store, re-organize, summarize or manipulate any MLS®
-                    VOW data or any related data, (6) you acknowledge the Board's ownership of, and the validity of the Board's proprietary rights and copyright in the MLS® VOW data, and listing information, and (7) you expressly authorize the Board or
-                    their duly authorized representatives, to access the MLS® VOW and the information you provide to the agent or brokerage hosting the MLS® VOW, for the purposes of verifying compliance with and pursuing enforcement of these Terms of
-                    Use and all applicable rules, regulations, bylaws, policies, and laws.</p>
-                <p style="color: black;">_________________________________________________________________________________</p>
-                <p style="color: black;">The trademarks MLS®, Multiple Listing Service® and the associated logos are owned by REALTOR® Canada Inc. and licensed exclusively to The Canadian Real Estate Association (CREA). These certification marks identify real estate professionals
-                    who are members of CREA and who must abide by CREA's By-Laws, Rules, and the REALTOR® Code. The MLS® trademark and the MLS® logo are owned by CREA and identify the quality of services provided by real estate professionals who are members
-                    of CREA.</p>
-                <p style="color: black;">_________________________________________________________________________________
-                </p>
+                    </section>
+                </div>
             </div>
         </section>
-    </footer>
-</body>
-
-</html>
+    </div>
+    <aside class="side-column xs-mt3 md-mt0 xs-mb5 md-mb0 xs-relative xs-z2">
+        <section id="sticky" class="">
+            <nav class="nav-actions xs-flex xs-flex-align-center gut fill-white xs-fixed xs-b0 xs-l0 xs-r0 xs-shadow-top xs-z4 md-hide">
+                <div class="nav-actions-cta xs-flex xs-full-width xs-flex-align-center xs-my1">
+                    <a href="tel:+17784021805" class="button button--action xs-mr1 xs-flex-grow-1 pill" onclick="ga('send', {
+      hitType: 'event',
+      eventCategory: 'listing',
+      eventAction: 'call',
+      eventLabel: 'sale'
+      });">Call</a>
+                    <a href="#contact_us" class="button button--action xs-flex-grow-1 pill">Email</a>
+                </div>
+            </nav>
+        </section>
+        <div class="listing-lead fill-white md-px3 md-mt3 xs-sticky xs-t2  xs-z1 rounded shadow-3" id="contact_us">
+            <h3 class="xs-full-width bold xs-py3 xs-text-2">Ask About this Home</h3>
+            <form action="#" method="post" name="contact_prop_details" class="listing-lead-form xs-pb3" id="top_contact_prop_details">
+                <div class="listing-lead-form-inputs"><label for="InputFullname" class="sr-only">Full name</label>
+                    <div class="input-wrapper xs-mb1">
+                        <input type="text" id="InputFullname" placeholder="Full Name" class="text-input rounded fill-grey-input xs-pr4" name="fullname" data-validate="true" data-required="true" required="">
+                        <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                            <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 9c2.7 0 5.8 1.29 6 2v1H6v-.99c.2-.72 3.3-2.01 6-2.01m0-11a4 4 0 100 8 4 4 0 000-8zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"></path></svg>
+                        </div>
+                    </div><label for="inputEmail" class="sr-only">Email address</label>
+                    <div class="input-wrapper xs-mb1">
+                        <input type="email" id="inputEmail" placeholder="Email Address" class="text-input rounded fill-grey-input xs-pr4" name="emailaddress" data-validate="true" data-required="true" required="">
+                        <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                            <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M22 6a2 2 0 00-2-2H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+                        </div>
+                    </div>
+                    <label for="inputPhone" class="sr-only">Phone number</label>
+                    <div class="input-wrapper xs-mb1">
+                        <input type="tel" id="inputPhone" placeholder="Phone Number (Mobile)" class="text-input rounded fill-grey-input xs-pr4" name="mobile" data-validate="true" data-required="true" required="" pattern="^[\s\S]{10,}$">
+                        <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                            <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M7 1a2 2 0 00-2 2v18c0 1.1.9 2 2 2h10a2 2 0 002-2V3a2 2 0 00-2-2H7zm0 2h10v2H7V3zm0 4h10v9H7V7zm0 11h10v3H7v-3zm3 1v1h4v-1h-4z"></path></svg>
+                        </div>
+                    </div>
+                    <label for="inputMessage" class="sr-only">Message</label>
+                    <textarea id="inputMessage" class="text-input rounded fill-grey-input" rows="4" name="c_message">I would like more information regarding a property at {{data.address}}</textarea>
+                    <button type="submit" disabled class="button button--action button--large pill xs-full-width xs-mt1 xs-flex xs-flex-justify-center bold shadow-2 text-3">Submit</button>
+                </div>
+                <div class="xs-text-center xs-mt3">
+                    <div class="xs-mb1">or call for info</div>
+                    <div class="realtor-call xs-ml-auto">
+                        <a>(012) 345-6789</a>
+                    </div>
+                </div>
+                <input type="hidden" name="cid" value="1">
+                <input type="hidden" name="pid" value="10411531">
+                <input type="hidden" name="this_s_r" value="sale">
+                <input type="text" name="Email" id="email" placeholder="Your email" class="xs-hide">
+            </form>
+        </div>
+    </aside>
+</section>
+{% endblock %}
