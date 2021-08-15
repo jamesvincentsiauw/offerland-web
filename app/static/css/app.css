@@ -2396,6 +2396,7 @@ body.preload * {
     transition: none!important
 }
 
+input[type=password],
 input[type=email],
 input[type=number],
 input[type=tel],

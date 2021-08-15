@@ -1,5 +1,5 @@
-from re import search
-from flask import render_template, jsonify, abort, request
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import render_template, jsonify, abort, request, url_for, redirect, session
 from app import app
 from flask_paginate import Pagination, get_page_args
 import json
@@ -7,6 +7,28 @@ import random
 
 f = open('app/data/listing.json')
 data = json.load(f)
+
+def verify_session():
+    return True if session.get('user') else False
+
+def verify_password(email, password=None, flag='login'):
+    users = open('app/db/creds.txt', 'r').read()
+    users = users.split('\n')
+    del users[-1]
+    users = [u.split(',') for u in users]
+
+    filtered = list(filter(lambda x: x[1] == email, users))
+    if flag == 'register':
+        if len(filtered) > 0:
+            raise Exception('Email Already Exist, Try Again Another Email Address')
+    else:
+        if len(filtered) == 0:
+            raise Exception('Email Not Found, Please Register Yourself!')
+        
+        if not check_password_hash(filtered[0][3], password):
+            raise Exception('Wrong Password')
+        
+        return filtered[0]
 
 def get_key(q):
     if "mls" in q:
@@ -32,10 +54,16 @@ def index():
     q = request.args.get('q')
     status = request.args.get('status')
 
-    data = get_default_data()[:1500]
+    if verify_session():
+        data = get_default_data()[:500]
+    else:
+        data = get_default_data()[:1500]
+
     if status == 'Active':
         data = [d for d in data if d['status'] == 'Active']
     elif status == 'Sold':
+        if not verify_session():
+            return redirect('/')
         data = [d for d in data if d['status'] == 'Sold']
 
     page, per_page, offset = get_page_args(page_parameter='page',
@@ -52,7 +80,8 @@ def index():
                                 page=page,
                                 per_page=per_page,
                                 pagination=pagination,
-                                search=None)
+                                search=None,
+                                user=session.get('user'))
     else:
         if ':' in q:
             keyword = q.split(':')
@@ -69,7 +98,8 @@ def index():
                                     page=page,
                                     per_page=per_page,
                                     pagination=pagination,
-                                    search=q)
+                                    search=q,
+                                    user=session.get('user'))
         else:
             abort(400)
 
@@ -84,6 +114,78 @@ def listing_page(listing_id):
                             data=filtered_data[0],
                             image=image,
                             search=None)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if verify_session():
+        return redirect('/profile')
+    try:
+        if request.method == 'GET':
+            return render_template('login.html')
+        else:
+            email = request.form.get('emailaddress')
+            password = request.form.get('password')
+            if not email:
+                raise Exception('Email Cannot be Empty')
+            if not password:
+                raise Exception('Password Cannot be Empty')
+            
+            user = verify_password(email, password)
+
+            session['user'] = {
+                'fullName': user[0],
+                'email': user[1],
+                'mobile': user[2],
+                'password': user[3]
+            }
+            return redirect('/')
+    except Exception as e:
+        return render_template('login.html', error=e.args[0])
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    try:
+        if verify_session():
+            return redirect('/profile')
+        if request.method == 'GET':
+            return render_template('register.html')
+        else:
+            fullname = request.form.get('fullname')
+            email = request.form.get('emailaddress')
+            phone = request.form.get('mobile')
+            password = generate_password_hash(request.form.get('password'))
+
+            verify_password(email=email, flag='register')
+            file = open('app/db/creds.txt', 'a')
+            file.write(fullname)
+            file.write(",")
+            file.write(email)
+            file.write(",")
+            file.write(phone)
+            file.write(",")
+            file.write(password)
+            file.write("\n")
+            file.close()
+
+            return render_template('register.html', success='Registered Successfully, Please Login')
+    except Exception as e:
+        return render_template('register.html', error=e.args[0])
+
+
+@app.route('/profile', methods=['GET'])
+def profile():
+    if not verify_session():
+        return redirect('/login')
+    return render_template('profile.html', user=session.get('user'))
+
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    if verify_session():
+        session.clear()
+        return redirect('/')
 
 
 @app.errorhandler(404)

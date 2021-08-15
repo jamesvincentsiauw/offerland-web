@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+<center>
+    <div class="listing-lead md-px3 md-mt3 rounded mb-3" style="width: 50%">
+        <center>
+            <h2 class="xs-full-width bold xs-py3 xs-text-2 mb-5">This is your profile</h2>
+        </center>
+        {% if success %}
+        <div class="alert alert-success" role="alert">
+            {{ success }} <a href="{{ url_for('login') }}" class="alert-link">Here</a>
+        </div>
+        {% endif %} {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        <div class="input-wrapper xs-mb1">
+            <input disabled value="Full Name: {{user['fullName']}}" type="text" id="InputFullname" placeholder="Full Name" class="text-input rounded fill-grey-input xs-pr4" name="fullname" data-validate="true" data-required="true" required="">
+            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 9c2.7 0 5.8 1.29 6 2v1H6v-.99c.2-.72 3.3-2.01 6-2.01m0-11a4 4 0 100 8 4 4 0 000-8zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"></path></svg>
+            </div>
+        </div>
+        <div class="input-wrapper xs-mb1">
+            <input disabled value="Email Address: {{user['email']}}" type="email" id="inputEmail" placeholder="Email Address" class="text-input rounded fill-grey-input xs-pr4" name="emailaddress" data-validate="true" data-required="true" required="">
+            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M22 6a2 2 0 00-2-2H4a2 2 0 00-2 2v12c0 1.1.9 2 2 2h16a2 2 0 002-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+            </div>
+        </div>
+        <div class="input-wrapper xs-mb1">
+            <input disabled value="Phone Number: {{user['mobile']}}" type="tel" id="inputPhone" placeholder="Phone Number (Mobile)" class="text-input rounded fill-grey-input xs-pr4" name="mobile" data-validate="true" data-required="true" required="" pattern="^[\s\S]{10,}$">
+            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M7 1a2 2 0 00-2 2v18c0 1.1.9 2 2 2h10a2 2 0 002-2V3a2 2 0 00-2-2H7zm0 2h10v2H7V3zm0 4h10v9H7V7zm0 11h10v3H7v-3zm3 1v1h4v-1h-4z"></path></svg>
+            </div>
+        </div>
+        <div class="input-wrapper xs-mb1">
+            <input disabled value="Password: ....." type="password" id="inputPassword" placeholder="Password" class="text-input rounded fill-grey-input xs-pr4" name="password" data-validate="true" data-required="true" required="">
+            <div class="xs-flex xs-flex-align-center xs-flex-justify-center xs-border border-transparent rounded text-secondary xs-p1 xs-absolute xs-r0 xs-t0 xs-full-height">
+                <svg viewBox="0 0 24 24" height="20" width="20" class="fill-current text-secondary"><path d="M17 9.761v-4.761c0-2.761-2.238-5-5-5-2.763 0-5 2.239-5 5v4.761c-1.827 1.466-3 3.714-3 6.239 0 4.418 3.582 8 8 8s8-3.582 8-8c0-2.525-1.173-4.773-3-6.239zm-8-4.761c0-1.654 1.346-3 3-3s3 1.346 3 3v3.587c-.927-.376-1.938-.587-3-.587s-2.073.211-3 .587v-3.587zm3 17c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6zm2-6c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2z"></path></svg>
+            </div>
+        </div>
+        <form action="{{ url_for('logout') }}" method="post" class="listing-lead-form xs-pb3 mt-3">
+            <div class="listing-lead-form-inputs">
+                <button type="submit" class="btn btn-danger button--small pill xs-full-width xs-mt1 xs-flex xs-flex-justify-center bold shadow-2 text-3">Logout</button>
+            </div>
+        </form>
+    </div>
+</center>
+{% endblock %}
