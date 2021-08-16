@@ -25,13 +25,13 @@
                         <div class="xs-flex xs-flex-column md-flex-row md-flex-align-center xs-flex-order-3 md-flex-order-1">
                             <hr>
                             <section class="nav-section dropdown xs-relative">
-                                <button onclick="window.location.href='?status=Active'" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
+                                <button onclick="window.location.href='/?status=Active'" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
         Active
         </button>
                             </section>
                             <hr class="md-hide">
                             <section class="nav-section dropdown xs-relative">
-                                <button onclick="window.location.href='?status=Sold'" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
+                                <button onclick="window.location.href='/?status=Sold'" class="button button--menu xs-inline-flex xs-flex-align-center xs-text-3 md-text-5 xs-text-left normal xs-full-width hover:fill-grey-bg-2">
         Sold
         </button>
                             </section>
@@ -81,7 +81,7 @@
             <li class="md-ml-auto xs-hide md-inline-block">
                 <div class="xs-flex xs-flex-align-center xs-full-width xs-z4 xs-gut-neg xs-px3 sm-px0 xs-flex-grow-1">
                     <div class="nav-filters-location md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:300px;">
-                        <form id="location_only_search" name="location_only_search">
+                        <form id="location_only_search" name="location_only_search" action="/">
                             <div class="filter-location-input xs-full-width xs-relative">
                                 {% if request.args.get('status') %}
                                 <input type="hidden" value="{{request.args.get('status')}}" name="status" id="status"> {% endif %}
@@ -100,7 +100,7 @@
         </ul>
     </section>
     {% block content %}{% endblock %}
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <!-- <footer class="text-center text-lg-start bg-light text-muted">
         <section class="">
             <div class="container text-center text-md-start p-4" style="font-size: xx-small;">
                 <p style="color: black;"><b>Legal Notices</b></p>
@@ -132,7 +132,7 @@
                 </p>
             </div>
         </section>
-    </footer>
+    </footer> -->
 </body>
 
 </html>

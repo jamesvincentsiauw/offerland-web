@@ -2396,6 +2396,10 @@ body.preload * {
     transition: none!important
 }
 
+input[type=checkbox] {
+    -webkit-appearance: checkbox;
+}
+
 input[type=password],
 input[type=email],
 input[type=number],

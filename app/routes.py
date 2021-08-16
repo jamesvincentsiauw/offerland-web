@@ -53,19 +53,17 @@ def numberFormat(value):
 def index():
     q = request.args.get('q')
     status = request.args.get('status')
+    data = get_default_data()
 
-    if verify_session():
-        data = get_default_data()[:500]
-    else:
-        data = get_default_data()[:1500]
-
-    if status == 'Active':
-        data = [d for d in data if d['status'] == 'Active']
-    elif status == 'Sold':
+    if status == 'Sold':
         if not verify_session():
-            return redirect('/')
+            return redirect('/login')
         data = [d for d in data if d['status'] == 'Sold']
-
+        data = data[:500]
+    else:
+        data = [d for d in data if d['status'] == 'Active']
+        data = data[:1500]
+    
     page, per_page, offset = get_page_args(page_parameter='page',
                                             per_page_parameter='per_page')
     per_page = 50
