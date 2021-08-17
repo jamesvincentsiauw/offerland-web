@@ -15,8 +15,33 @@
                 <a href="{{ url_for('index') }}" style="text-decoration: none; color: black;">
                     <h1 style="text-decoration: none;">Hamid Etebarian</h1>
                 </a>
-                <div class="nav-filters-location xs-hide md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:400px;">
-                    <img src="{{ url_for('static', filename='/team-3000.png') }}" style="width: 20%;">
+                <div class="nav-filters-location xs-hide md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3" style="min-width:60px; max-width:60px;">
+                    <img src="{{ url_for('static', filename='/team-3000.png') }}" style="width: 100%;">
+                </div>
+                <div>
+                    <section style="margin-top: 10px; margin-bottom: 20px; margin-left:90%">
+                        <ul class="nav-filters-menu xs-relative md-flex md-flex-align-center md-flex-grow-1 list-unstyled">
+                            <li class="md-ml-auto md-inline-block">
+                                <div class="xs-flex xs-flex-align-center xs-full-width xs-z4 xs-gut-neg xs-px3 sm-px0 xs-flex-grow-1">
+                                    <div class="nav-filters-location md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:350px; max-width:500px;">
+                                        <form id="location_only_search" name="location_only_search" action="/">
+                                            <div class="filter-location-input xs-full-width xs-relative">
+                                                {% if request.args.get('status') %}
+                                                <input type="hidden" value="{{request.args.get('status')}}" name="status" id="status"> {% endif %}
+                                                <label for="sarea" class="sr-only">Search Property</label> {% if not search %}
+                                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="on" style="height:3rem"> {% else
+                                                %}
+                                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem">                                                {% endif %}
+                                                <button class="submit-search button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none circle xs-flex xs-flex-align-center xs-flex-justify-center hover:text-blue xs-absolute xs-t05 xs-r1" type="submit" aria-label="Submit search">
+                                    <svg viewBox="0 0 24 24" height="24" width="24" class="fill-current" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0a4.5 4.5 0 11-.01-8.99A4.5 4.5 0 019.5 14z"></path></svg>
+                                    </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
             </div>
             <div id="drawer-menu" class="drawer drawer-ltr drawer-desktop drawer-menu fill-white print-hide">
@@ -76,29 +101,7 @@
             <div class="backdrop"></div>
         </div>
     </header>
-    <section style="margin-top: 10px; margin-bottom: 20px;">
-        <ul class="nav-filters-menu xs-relative md-flex md-flex-align-center md-flex-grow-1 list-unstyled">
-            <li class="md-ml-auto xs-hide md-inline-block">
-                <div class="xs-flex xs-flex-align-center xs-full-width xs-z4 xs-gut-neg xs-px3 sm-px0 xs-flex-grow-1">
-                    <div class="nav-filters-location md-block xs-p3 md-p0 xs-relative xs-border-bottom-lighter md-border-bottom-none clearfix xs-mx3 xs-full-width" style="min-width:120px; max-width:300px;">
-                        <form id="location_only_search" name="location_only_search" action="/">
-                            <div class="filter-location-input xs-full-width xs-relative">
-                                {% if request.args.get('status') %}
-                                <input type="hidden" value="{{request.args.get('status')}}" name="status" id="status"> {% endif %}
-                                <label for="sarea" class="sr-only">Search Property</label> {% if not search %}
-                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="on" style="height:3rem"> {% else %}
-                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem"> {%
-                                endif %}
-                                <button class="submit-search button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none circle xs-flex xs-flex-align-center xs-flex-justify-center hover:text-blue xs-absolute xs-t05 xs-r1" type="submit" aria-label="Submit search">
-                    <svg viewBox="0 0 24 24" height="24" width="24" class="fill-current" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0a4.5 4.5 0 11-.01-8.99A4.5 4.5 0 019.5 14z"></path></svg>
-                    </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </section>
+
     {% block content %}{% endblock %}
     <!-- <footer class="text-center text-lg-start bg-light text-muted">
         <section class="">
