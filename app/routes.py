@@ -3,6 +3,7 @@ from flask import render_template, jsonify, abort, request, url_for, redirect, s
 from app import app
 from flask_paginate import Pagination, get_page_args
 import json
+import re
 import random
 
 f = open('app/data/listing.json')
@@ -31,9 +32,10 @@ def verify_password(email, password=None, flag='login'):
         return filtered[0]
 
 def get_key(q):
-    if "mls" in q:
+    mlsRegex = re.compile(r'^R\d{7}')
+    if mlsRegex.search(q):
         return 'mlNo'
-    elif 'address' in q:
+    else:
         return 'address'
 
 def get_default_data():
@@ -81,25 +83,21 @@ def index():
                                 search=None,
                                 user=session.get('user'))
     else:
-        if ':' in q:
-            keyword = q.split(':')
-            key = get_key(keyword[0].lower())
-            data = [d for d in data if keyword[1].lower() in d[key].lower()]
-            
-            total = len(data)
-            pagination_data = get_data(data, offset=offset, per_page=per_page)
-            pagination = Pagination(page=page, per_page=per_page, total=total,
-                                    css_framework='bootstrap4')
+        key = get_key(q)
+        data = [d for d in data if q.lower() in d[key].lower()] if key == 'address' else [d for d in data if q == d[key]]
+        
+        total = len(data)
+        pagination_data = get_data(data, offset=offset, per_page=per_page)
+        pagination = Pagination(page=page, per_page=per_page, total=total,
+                                css_framework='bootstrap4')
 
-            return render_template('index.html', 
-                                    data=pagination_data,
-                                    page=page,
-                                    per_page=per_page,
-                                    pagination=pagination,
-                                    search=q,
-                                    user=session.get('user'))
-        else:
-            abort(400)
+        return render_template('index.html', 
+                                data=pagination_data,
+                                page=page,
+                                per_page=per_page,
+                                pagination=pagination,
+                                search=q,
+                                user=session.get('user'))
 
 
 @app.route('/detail/<listing_id>', methods=['GET'])
