@@ -42,12 +42,12 @@
                     </div>
                 </div>
                 <div class="input-wrapper xs-mb1">
-                    <input type="checkbox" id="inputPassword" placeholder="Password" class="text-input rounded fill-grey-input xs-pr4" data-required="true" required="">
-                    <a>I Agree to <a href="#tnc" data-toggle="modal" data-target="#exampleModalScrollable">
+                    <input hidden type="checkbox" id="tnc" class="text-input rounded fill-grey-input xs-pr4" data-required="true" required="">
+                    <a><a id="agree">Please read our</a> <a href="#tnc" data-toggle="modal" data-target="#exampleModalScrollable">
                         Terms & Conditions
                     </a></a>
                 </div>
-                <button type="submit" class="button button--action button--large pill xs-full-width xs-mt1 xs-flex xs-flex-justify-center bold shadow-2 text-3">Register</button>
+                <button disabled title="Please read the TnC First" alt="Please read the TnC First" type="submit" id="register_btn" class="btn btn-lg btn-primary pill xs-full-width xs-mt1 xs-flex xs-flex-justify-center bold shadow-2 text-3">Register</button>
             </div>
             <div class="xs-text-center xs-mt3">
                 <div class="xs-mb1">or login <a href="{{ url_for('login') }}">here</a></div>
@@ -58,13 +58,10 @@
 
 <!-- Modal -->
 <div class="modal fade" style="background-color: transparent;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalScrollableTitle">Terms & Conditions</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
             </div>
             <div class="modal-body">
                 <b><h5>LAST UPDATED: February 8, 2019</h5></b>
@@ -131,9 +128,9 @@
                     British Columbia and the federal laws of Canada as applicable and notwithstanding conflicts of law. You also agree and hereby submit to the exclusive jurisdiction and venue of the courts of the Province of British Columbia and acknowledge
                     and do so voluntarily.
                 </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="float-right">
+                    <button type="button" onclick="agreeTnC()" class="btn btn-primary" data-dismiss="modal">Continue</button>
+                </div>
             </div>
         </div>
     </div>
