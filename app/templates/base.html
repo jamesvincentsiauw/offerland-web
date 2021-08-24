@@ -29,7 +29,7 @@
                                             <div class="filter-location-input xs-full-width xs-relative">
                                                 {% if request.args.get('status') %}
                                                 <input type="hidden" value="{{request.args.get('status')}}" name="status" id="status"> {% endif %}
-                                                <label for="sarea" class="sr-only">Search Property</label> {% if not search %}
+                                                <label for="sarea" class="sr-only">Search property by address or city</label> {% if not search %}
                                                 <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="on" style="height:3rem"> {% else
                                                 %}
                                                 <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem">                                                {% endif %}
