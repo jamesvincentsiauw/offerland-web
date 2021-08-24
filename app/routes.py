@@ -11,9 +11,9 @@ import random
 import os
 
 load_dotenv()
-storage_client = storage.Client.from_service_account_json('/Users/jamesvincentsiauw/Documents/Projects/Offerland/offerland-web/app/db/gcreds.json')
+storage_client = storage.Client.from_service_account_json('app/db/gcreds.json')
 baseUrl = os.environ.get('STORAGE_URL')
-bucket = storage_client.bucket('etebarianca-storage-listing')
+bucket = storage_client.bucket(os.environ.get('BUCKET_NAME'))
 
 def getContent(blobName):
     print('Please wait, We are downloading the data')
@@ -24,7 +24,7 @@ def getContent(blobName):
     decodedContent = json.loads(stringContent, strict=False)
     return decodedContent
 
-data = getContent('listing-new.json')
+data = getContent(os.environ.get('BLOB_NAME'))
 
 def verify_session():
     return True if session.get('user') else False
