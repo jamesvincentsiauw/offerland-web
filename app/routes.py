@@ -3,11 +3,13 @@ from flask import render_template, jsonify, abort, request, url_for, redirect, s
 from app import app
 from flask_paginate import Pagination, get_page_args
 import json
+import requests as r
 import re
 import random
 
-f = open('app/data/listing.json')
-data = json.load(f)
+f = r.get('https://storage.googleapis.com/etebarianca-storage-listing/listing-new.json')
+# print(f)
+data = f.json()
 
 def verify_session():
     return True if session.get('user') else False
