@@ -2,3 +2,5 @@ __pycache__
 /venv
 /app/data
 .DS_Store
+app/db/*.json
+.env

@@ -2,14 +2,29 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import render_template, jsonify, abort, request, url_for, redirect, session
 from app import app
 from flask_paginate import Pagination, get_page_args
+from google.cloud import storage
+from dotenv import load_dotenv
 import json
 import requests as r
 import re
 import random
+import os
 
-f = r.get('https://storage.googleapis.com/etebarianca-storage-listing/listing-new.json')
-# print(f)
-data = f.json()
+load_dotenv()
+storage_client = storage.Client.from_service_account_json('/Users/jamesvincentsiauw/Documents/Projects/Offerland/offerland-web/app/db/gcreds.json')
+baseUrl = os.environ.get('STORAGE_URL')
+bucket = storage_client.bucket('etebarianca-storage-listing')
+
+def getContent(blobName):
+    print('Please wait, We are downloading the data')
+    blobContent = bucket.get_blob(blobName)
+    stringContent = blobContent.download_as_string()
+    # print(stringContent)
+    print('Please wait, We are extracting the data')
+    decodedContent = json.loads(stringContent, strict=False)
+    return decodedContent
+
+data = getContent('listing-new.json')
 
 def verify_session():
     return True if session.get('user') else False
