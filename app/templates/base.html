@@ -30,9 +30,8 @@
                                                 {% if request.args.get('status') %}
                                                 <input type="hidden" value="{{request.args.get('status')}}" name="status" id="status"> {% endif %}
                                                 <label for="sarea" class="sr-only">Search property by address or city</label> {% if not search %}
-                                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search Property..." name="q" id="q" autocomplete="on" style="height:3rem"> {% else
-                                                %}
-                                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search Property..." name="q" id="q" autocomplete="off" style="height:3rem">                                                {% endif %}
+                                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" type="text" placeholder="Search property by address or city" name="q" id="q" autocomplete="on" style="height:3rem">                                                {% else %}
+                                                <input class="text-input xs-full-width xs-pl3 xs-pr4 pill no-focus fill-grey-bg-2 xs-border-none" value={{search}} type="text" placeholder="Search property by address or city" name="q" id="q" autocomplete="off" style="height:3rem">                                                {% endif %}
                                                 <button class="submit-search button button--menu xs-h-40 xs-w-40 xs-p0 xs-border-none circle xs-flex xs-flex-align-center xs-flex-justify-center hover:text-blue xs-absolute xs-t05 xs-r1" type="submit" aria-label="Submit search">
                                     <svg viewBox="0 0 24 24" height="24" width="24" class="fill-current" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0a4.5 4.5 0 11-.01-8.99A4.5 4.5 0 019.5 14z"></path></svg>
                                     </button>

@@ -40,7 +40,7 @@
             <section class="listing-location min-width-0">
                 <h1 class="address xs-text-2 sm-text-1 truncate heavy">
                     {{data.address}} </h1>
-                <div class="area truncate">{{data.area}}</div>
+                <div class="area truncate">{{data.city}}</div>
                 <ul class="list-unstyled xs-mt2 bold">
                     <li class="tile-data xs-inline xs-mr1"><span class="priv">{{data.noBedrooms}}</span> bed</li>
                     <li class="tile-data xs-inline xs-mr1"><span class="priv">{{data.noBaths}}</span> bath</li>
@@ -87,10 +87,6 @@
                     <dl class="column">
                         <dt class="column-label">Added</dt>
                         <dd class="column-value">{{data.listDate}}</dd>
-                    </dl>
-                    <dl class="column">
-                        <dt class="column-label">Updated</dt>
-                        <dd class="column-value">{{data.updateDate.split(' ')[0]}}</dd>
                     </dl>
                     <dl class="column key-fact-mls">
                         <dt class="column-label">MLS®#</dt>

@@ -84,7 +84,7 @@ def index():
                                 user=session.get('user'))
     else:
         key = get_key(q)
-        data = [d for d in data if q.lower() in d[key].lower()] if key == 'address' else [d for d in data if q == d[key]]
+        data = [d for d in data if q.lower() in (d[key]+d['city']).lower()] if key == 'address' else [d for d in data if q == d[key]]
         
         total = len(data)
         pagination_data = get_data(data, offset=offset, per_page=per_page)
