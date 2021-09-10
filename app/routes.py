@@ -3,6 +3,7 @@ from flask import render_template, jsonify, abort, request, url_for, redirect, s
 from app import app
 from flask_paginate import Pagination, get_page_args
 from google.cloud import storage
+from app.helper import *
 from dotenv import load_dotenv
 import json
 import requests as r
@@ -28,25 +29,6 @@ data = getContent(os.environ.get('BLOB_NAME'))
 
 def verify_session():
     return True if session.get('user') else False
-
-def verify_password(email, password=None, flag='login'):
-    users = open('app/db/creds.txt', 'r').read()
-    users = users.split('\n')
-    del users[-1]
-    users = [u.split(',') for u in users]
-
-    filtered = list(filter(lambda x: x[1] == email, users))
-    if flag == 'register':
-        if len(filtered) > 0:
-            raise Exception('Email Already Exist, Try Again Another Email Address')
-    else:
-        if len(filtered) == 0:
-            raise Exception('Email Not Found, Please Register Yourself!')
-        
-        if not check_password_hash(filtered[0][3], password):
-            raise Exception('Wrong Password')
-        
-        return filtered[0]
 
 def get_key(q):
     mlsRegex = re.compile(r'^R\d{7}')
@@ -123,6 +105,9 @@ def listing_page(listing_id):
     image = str(random.randint(1,9))
     if len(filtered_data) == 0:
         abort(404)
+    if filtered_data[0]['status'] != 'Active':
+        if not verify_session():
+            return redirect('/login')
     return render_template('listing.html',
                             data=filtered_data[0],
                             image=image,
@@ -137,24 +122,15 @@ def login():
         if request.method == 'GET':
             return render_template('login.html')
         else:
-            email = request.form.get('emailaddress')
-            password = request.form.get('password')
-            if not email:
-                raise Exception('Email Cannot be Empty')
-            if not password:
-                raise Exception('Password Cannot be Empty')
-            
-            user = verify_password(email, password)
-
+            user = helper_login(request)
             session['user'] = {
                 'fullName': user[0],
                 'email': user[1],
-                'mobile': user[2],
-                'password': user[3]
+                'mobile': user[5],
             }
             return redirect('/')
     except Exception as e:
-        return render_template('login.html', error=e.args[0])
+        return render_template('login.html', error=e.args[1])
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -162,30 +138,14 @@ def register():
     try:
         if verify_session():
             return redirect('/profile')
-        if request.method == 'GET':
-            return render_template('register.html')
+        if request.method == 'POST':
+            helper_register(request)
         else:
-            fullname = request.form.get('fullname')
-            email = request.form.get('emailaddress')
-            phone = request.form.get('mobile')
-            password = generate_password_hash(request.form.get('password'))
-
-            verify_password(email=email, flag='register')
-            file = open('app/db/creds.txt', 'a')
-            file.write(fullname)
-            file.write(",")
-            file.write(email)
-            file.write(",")
-            file.write(phone)
-            file.write(",")
-            file.write(password)
-            file.write("\n")
-            file.close()
-
-            return render_template('register.html', success='Registered Successfully, Please Login')
+            return render_template('register.html', success='Registered Successfully, Please Check Your Email to Verify Your Account')
     except Exception as e:
-        return render_template('register.html', error=e.args[0])
-
+            print(e.args)
+            return render_template('register.html', error=e.args[1])
+            
 
 @app.route('/profile', methods=['GET'])
 def profile():
@@ -201,6 +161,14 @@ def logout():
         return redirect('/')
 
 
+@app.route('/tes')
+def test():
+    try:
+        helper_login(request)
+        return 'sukses'
+    except Exception as e:
+        return e.args[1]
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
@@ -209,12 +177,4 @@ def page_not_found(e):
 @app.errorhandler(400)
 def invalid_input(e):
     return render_template('400.html', search=request.args.get('q')), 400
-
-
-# @app.route('/search', methods = ['GET'])
-# def search_data():
-#     filter_arg = {
-#         'key': request.args.get('key'),
-#         'value': request.args.get('value')
-#     }
-#     if not filter_arg['key'] and not filter_arg['value']:
+            
