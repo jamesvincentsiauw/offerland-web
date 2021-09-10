@@ -21,13 +21,15 @@ def send_email_verification(user):
     message = Mail(from_email='jamesvincentsiauw@gmail.com',
                     to_emails=email,
                     subject='Email Verification for ' + user['fullname'],
-                    html_content=f'<h2>Click the link below to verify your account</h2><p><a href="https://etebarian.ca/verify?user={email}"></a><p/>')
+                    html_content=f'<h2>Click the link below to verify your account</h2><a href="https://etebarian.ca/verify?user={email}">VERIFY MY ACCOUNT</a>')
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         sg.send(message)
         print('Email sent!')
+        return True
     except Exception as e:
         print(e)
+        return False
 
 def verify_account(email):
     try:
@@ -81,6 +83,13 @@ def helper_register(request):
 
     cursor.execute(query)
 
+    is_email_sent = send_email_verification({
+        'fullname': fullname,
+        'email': email
+    })
+
+    if not is_email_sent:
+        raise Exception('Something went wrong with our server, please try again later')
     connection.commit()
     cursor.close()
 
