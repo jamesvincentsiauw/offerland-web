@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block title %}Account Verification{% endblock %} {% block content %} {% if verified %}
+<center>
+    <h1>Congratulations!</h1>
+    <p>Your Account Has Been Successfully Verified.
+        <p>
+            <a href="{{ url_for('login') }}">Login Here</a>
+</center>
+{% else %}
+<center>
+    <h1>Verification Error!</h1>
+    <p>{{ message }}
+        <p>
+            <a href="{{ url_for('index') }}">Go somewhere nice</a>
+</center>
+{% endif %} {% endblock %}

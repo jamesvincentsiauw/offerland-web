@@ -139,9 +139,11 @@ def register():
         if verify_session():
             return redirect('/profile')
         if request.method == 'POST':
-            helper_register(request)
+            register_result = helper_register(request)
+            if register_result:
+                return render_template('register.html', success='Registered Successfully, Please Check Your Email to Verify Your Account')
         else:
-            return render_template('register.html', success='Registered Successfully, Please Check Your Email to Verify Your Account')
+            return render_template('register.html')
     except Exception as e:
             print(e.args)
             return render_template('register.html', error=e.args[1])
@@ -159,6 +161,12 @@ def logout():
     if verify_session():
         session.clear()
         return redirect('/')
+
+@app.route('/verify', methods=['GET'])
+def verify_email():
+    email = request.args.get('user')
+    account_verification = verify_account(email)
+    return render_template('accountVerification.html', verified=account_verification['verified'], message=account_verification['message'])
 
 
 @app.route('/tes')
