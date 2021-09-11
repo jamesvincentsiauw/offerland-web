@@ -1,4 +1,3 @@
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask import render_template, jsonify, abort, request, url_for, redirect, session
 from app import app
 from flask_paginate import Pagination, get_page_args
@@ -63,7 +62,7 @@ def index():
         data = data[:500]
     else:
         data = [d for d in data if d['status'] == 'Active']
-        data = data[:1500]
+        data = data[:500]
     
     page, per_page, offset = get_page_args(page_parameter='page',
                                             per_page_parameter='per_page')
