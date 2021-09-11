@@ -2,6 +2,7 @@ import mysql.connector as db
 import os
 from uuid import uuid4
 from datetime import datetime
+from mysql.connector import cursor
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
@@ -65,6 +66,9 @@ def helper_login(request):
     if not check_password_hash(stored_password, password):
         raise Exception(400, 'Wrong Password')
     
+    if result[7]:
+        raise Exception(403, 'Your account has expired')
+
     if not result[4]:
         raise Exception(403, 'Your email is not verified yet')
     
