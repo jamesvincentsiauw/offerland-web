@@ -161,20 +161,13 @@ def logout():
         session.clear()
         return redirect('/')
 
+
 @app.route('/verify', methods=['GET'])
 def verify_email():
     email = request.args.get('user')
     account_verification = verify_account(email)
     return render_template('accountVerification.html', verified=account_verification['verified'], message=account_verification['message'])
 
-
-@app.route('/tes')
-def test():
-    try:
-        helper_login(request)
-        return 'sukses'
-    except Exception as e:
-        return e.args[1]
 
 @app.errorhandler(404)
 def page_not_found(e):
