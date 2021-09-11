@@ -38,6 +38,7 @@ def check_account_expiration():
         cursor.close()
     except Exception as e:
         print(e.args)
+
 # Function to check the service is running well
 def health_check():
     print('Health Checked at '+str(datetime.now()))
