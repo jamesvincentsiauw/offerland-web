@@ -11,7 +11,7 @@
                 <a href="/detail/{{item.id}}" class="stretched-link"></a>
             </div>
             <div class="card-footer">
-                <small class="text-muted font-weight-bold">MLS<sup>&reg;</sup>{{item.mlNo}} by Listing Brokerage</small> {% if item.status == 'Active' %}
+                <small class="text-muted font-weight-bold">MLS<sup>&reg;</sup>{{item.mlNo}} by {{item.listingBrokerage}}</small> {% if item.status == 'Active' %}
                 <span class="badge badge-pill badge-success float-right" style="background-color: green">Active</span> {% else %}
                 <span class="badge badge-pill badge-success float-right" style="background-color: #DC3444">{{item.status}}</span> {% endif%}
             </div>
