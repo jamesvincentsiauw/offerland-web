@@ -50,10 +50,13 @@ def verify_account(email):
             'message': 'Your account has been successfully verified'
         }
     except Exception as e:
+        print(e)
         return {
             'verified': False,
             'message': e.args[1]
         }
+    finally:
+        cursor.close()
 
 def helper_login(request):
     email = request.form.get('emailaddress')
