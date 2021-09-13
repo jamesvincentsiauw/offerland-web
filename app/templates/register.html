@@ -8,11 +8,15 @@
         <div class="alert alert-success" role="alert">
             {{ success }}
         </div>
-        {% endif %} {% if error %}
+        {% endif %} {% if error %} {% if not is_duplicated %}
         <div class="alert alert-danger" role="alert">
             {{ error }}
         </div>
-        {% endif %}
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}. Please Login <a href="{{ url_for('login') }}">Here</a>
+        </div>
+        {% endif %} {% endif %}
         <form action="{{ url_for('register') }}" method="post" name="register_form" class="listing-lead-form xs-pb3" id="register_form">
             <div class="listing-lead-form-inputs"><label for="InputFullname" class="sr-only">Full name</label>
                 <div class="input-wrapper xs-mb1">

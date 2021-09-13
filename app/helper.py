@@ -19,10 +19,16 @@ connection = db.connect(
 
 def send_email_verification(user):
     email = user['email']
-    message = Mail(from_email='jamesvincentsiauw@gmail.com',
+    email_body = f'''<h4>Hi {user['fullname']},</h4>
+        <p>
+            Thank you for registering to our website. Please click <a href="https://etebarian.ca/verify?user={email}">here</a> to activate your account.
+        </p>
+        Best,<br>
+        Hamid'''
+    message = Mail(from_email='hamid@etebarian.ca',
                     to_emails=email,
                     subject='Email Verification for ' + user['fullname'],
-                    html_content=f'<h2>Click the link below to verify your account</h2><a href="https://etebarian.ca/verify?user={email}">VERIFY MY ACCOUNT</a>')
+                    html_content=email_body)
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         sg.send(message)

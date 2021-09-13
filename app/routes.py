@@ -144,9 +144,11 @@ def register():
         else:
             return render_template('register.html')
     except Exception as e:
-            print(e.args)
-            return render_template('register.html', error=e.args[1])
-            
+        if e.args[0] != 1062:
+            return render_template('register.html', error=e.args[1], is_duplicated=False)
+        else:
+            return render_template('register.html', error='Email Already Registered', is_duplicated=True)
+
 
 @app.route('/profile', methods=['GET'])
 def profile():
