@@ -39,24 +39,23 @@ def send_email_verification(user):
         return False
 
 def verify_account(email):
+    cursor = connection.cursor()
+    query = f'update etebarianca.users set is_active = 1 where email = "{email}"'
     try:
-        cursor = connection.cursor()
-        query = f'update etebarianca.users set is_active = 1 where email = "{email}"'
-
         cursor.execute(query)
         connection.commit()
+        cursor.close()
         return {
             'verified': True,
             'message': 'Your account has been successfully verified'
         }
     except Exception as e:
         print(e)
+        cursor.close()
         return {
             'verified': False,
             'message': e.args[1]
         }
-    finally:
-        cursor.close()
 
 def helper_login(request):
     email = request.form.get('emailaddress')
@@ -101,9 +100,9 @@ def helper_register(request):
         'email': email
     })
 
+    cursor.close()
     if not is_email_sent:
         raise Exception('Something went wrong with our server, please try again later')
     connection.commit()
-    cursor.close()
 
     return True
