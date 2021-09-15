@@ -39,6 +39,7 @@ def send_email_verification(user):
         return False
 
 def verify_account(email):
+    connection.reconnect()
     cursor = connection.cursor()
     query = f'update etebarianca.users set is_active = 1 where email = "{email}"'
     try:
@@ -60,6 +61,7 @@ def verify_account(email):
 def helper_login(request):
     email = request.form.get('emailaddress')
     password = request.form.get('password')
+    connection.reconnect()
     cursor = connection.cursor()
 
     query = f'select * from etebarianca.users where email="{email}"'
@@ -83,6 +85,7 @@ def helper_login(request):
     return result
 
 def helper_register(request):
+    connection.reconnect()
     cursor = connection.cursor()
 
     fullname = request.form.get('fullname')
