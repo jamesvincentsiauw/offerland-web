@@ -19,7 +19,7 @@ connection = db.connect(
 
 def send_email_verification(user):
     email = user['email']
-    email_body = f'''<h4>Hi {user['fullname']},</h4>
+    email_body = f'''<p>Hi {user['fullname']},</p>
         <p>
             Thank you for registering to our website. Please click <a href="https://etebarian.ca/verify?user={email}">here</a> to activate your account.
         </p>
