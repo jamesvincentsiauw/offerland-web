@@ -77,8 +77,8 @@
                         <dd class="column-value"><span class="priv">{{data.lotSizeSqFeet if data.lotSizeSqFeet != 0 else '-'}} sqft</span></dd>
                     </dl>
                     <dl class="column">
-                        <dt class="column-label">Year Built</dt>
-                        <dd class="column-value"><span class="priv">{{data.yearBuilt}}</span></dd>
+                        <dt class="column-label">Year Built</dt> {% set yearBuilt = data.yearBuilt | string() %}
+                        <dd class="column-value"><span class="priv">{{yearBuilt[:-2]}}</span></dd>
                     </dl>
                     <dl class="column">
                         <dt class="column-label">Pets</dt>

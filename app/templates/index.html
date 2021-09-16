@@ -6,7 +6,8 @@
             <img class="card-img-top" src="{{ url_for('static', filename='/house.png') }}" style="height: 180px" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">${{ item.listPrice | numberFormat }}</h4>
-                <p class="card-text">{{ item.noBedrooms }} bed {{item.noBaths}} bath. Built in {{item.yearBuilt}}</p>
+                {% set yearBuilt = item.yearBuilt | string() %}
+                <p class="card-text">{{ item.noBedrooms }} bed {{item.noBaths}} bath. Built in {{yearBuilt[:-2]}}</p>
                 <p class="card-text">{{ item.address.title() }}, {{ item.city }}</p>
                 <a href="/detail/{{item.id}}" class="stretched-link"></a>
             </div>
