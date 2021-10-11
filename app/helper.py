@@ -18,10 +18,11 @@ connection = db.connect(
 )
 
 def send_email_verification(user):
-    email = user['email'].replace('+', '%2b')
+    email = user['email']
+    print(email)
     email_body = f'''<p>Hi {user['fullname']},</p>
         <p>
-            Thank you for registering to our website. Please click <a href="https://etebarian.ca/verify?user={email}">here</a> to activate your account.
+            Thank you for registering to our website. Please click <a href="https://etebarian.ca/verify?user={email.replace('+', '%2b')}">here</a> to activate your account.
         </p>
         Best,<br>
         Hamid'''
